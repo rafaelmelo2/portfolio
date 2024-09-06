@@ -1,0 +1,429 @@
+:root{
+    --purple-dark-color: rgb(18, 7, 59);
+    --purple: rgb(96, 88, 184);
+    --red: rgb(136, 0, 16);
+    --blue: rgb(104, 152, 232);
+    --purple-blue: rgb(32, 24, 160);
+    --text-smoke: rgb(197, 194, 194);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: var(--purple);
+    font-family: 'Montserrat', sans-serif;
+}
+  
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-strong {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.fade-in-strong.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+
+.first-main {
+    position: relative;
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center;     /* Centraliza o conteúdo verticalmente */
+     /* Substitua pela sua imagem */
+    background-size: cover;  /* Faz a imagem cobrir todo o fundo */
+    background-position: center; /* Centraliza a imagem */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    z-index: 1; /* Define o texto como superior ao overlay */
+}
+
+.parallax {
+    background-image: url('./imgs/game-room.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+  }
+  
+.first-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Tela preta com 50% de opacidade */
+    z-index: -1; /* Mantém a tela preta atrás do conteúdo */
+}
+
+h3 {
+    font-size: 3rem; /* Tamanho da fonte */
+    margin-bottom: 1rem;
+}
+
+  
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+a{
+    color: var(--text-smoke);
+}
+
+
+
+.about{
+    margin: 5% auto; /* Margem superior e inferior de 5% e centraliza horizontalmente */
+    width: 80%; /* Define a largura máxima para o bloco sobre mim */
+    max-width: 1200px; /* Define um máximo de largura para que o conteúdo não fique muito largo */
+    background-color: var(--purple-dark-color);
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center;
+    padding: 20px; /* Adiciona algum espaçamento interno */
+    border-radius: 10px; /* Adiciona bordas arredondadas ao bloco */
+}
+
+.about h3{
+    color: white;
+    
+}
+
+.about h4{
+    color: var(--purple);
+    margin-bottom: 1rem;
+}
+
+
+.about p{
+    color:var(--text-smoke);
+}
+
+
+
+.about-text{
+    max-width: 60%; /* Limita a largura do texto */
+    margin-right: 20px;
+    line-height: 1.5;
+}
+
+.about-image{
+    width: 250px; /* Tamanho do quadrado */
+    height: 250px; /* Tamanho do quadrado */
+    overflow: hidden; /* Oculta a parte da imagem que ultrapassa o contêiner */
+    border-radius: 50%; /* Faz o contêiner ter bordas arredondadas, se desejar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.about img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+
+.project-title{
+    text-align: center;
+    color: white;
+}
+
+.project-title h1{
+    font-size: 3rem;
+}
+
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribui os projetos igualmente */
+    margin: 3% auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.project {
+    height: auto;
+    background-color: var(--purple-dark-color);
+    color:var(--text-smoke);
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    margin-bottom: 20px; /* Espaçamento entre projetos */
+    width: 450px; /* Três projetos por linha, com espaçamento */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    overflow: hidden;
+    text-align: center;
+}
+
+.project img {
+    width: 100%;
+    height: 300px; /* Altura fixa para uniformidade */
+    object-fit: cover; /* Mantém a proporção da imagem sem distorção */
+    border-radius: 10px; /* Bordas arredondadas na imagem */
+    margin-bottom: 15px; /* Espaçamento entre imagem e título */
+}
+
+.project h4 {
+    font-size: 1.2rem; /* Tamanho do título */
+    margin-bottom: 10px;
+}
+
+.project a {
+    color: var(--purple); /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado padrão */
+}
+
+.project a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.project p {
+    font-size: 1rem; /* Tamanho da descrição */
+    margin-bottom: 15px; /* Espaçamento entre a descrição e os ícones */
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre os ícones */
+}
+
+.tech-icons img {
+    width: 24px; /* Tamanho dos ícones */
+    height: auto;
+}
+
+
+
+
+
+.progress-bar {
+    width: 100%;
+    background-color: whitesmoke; /* Cor do fundo da barra */
+    border-radius: 20px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--blue); /* Cor da barra de progresso */
+    border-radius: 20px;
+    transition: width 0.3s ease; /* Animação para a barra de progresso */
+}
+
+
+.courses {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    background-color: var(--purple-dark-color);
+    color: white;
+    padding: 20px;
+    margin-top: 2%;
+}
+.courses p{
+    color: var(--text-smoke);
+}
+
+.course-section {
+    margin-bottom: 30px; /* Espaçamento entre as seções de cursos */
+    margin-right: 30px;
+        
+}
+
+.course-section h3 {
+    font-size: 1.5rem; /* Tamanho do título da seção */
+    margin-bottom: 15px; /* Espaçamento abaixo do título da seção */
+}
+
+.courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaçamento entre os cursos */
+    
+}
+
+.course {
+    background-color: var(--purple); /* Cor de fundo dos cursos */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 15px;
+    flex: 1 1 calc(33.333% - 20px); /* Tamanho dos cursos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    text-align: center;
+    max-width: 400px; /* Largura máxima dos cursos */
+    margin-bottom: 10px;
+}
+
+.course h4 {
+    font-size: 1.2rem; /* Tamanho do título do curso */
+    margin-bottom: 10px; /* Espaçamento abaixo do título do curso */
+}
+
+.course p {
+    font-size: 1rem; /* Tamanho da descrição do curso */
+}
+
+
+
+
+.footer {
+    background-color: var(--purple-dark-color);
+    color: var(--text-smoke);
+    padding: 20px;
+    text-align: center; /* Centraliza o texto no footer */
+}
+
+.contact-info {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os itens */
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 1.2rem; /* Tamanho da fonte dos contatos */
+    display: flex;
+    align-items: center; /* Alinha o ícone e o texto verticalmente */
+    gap: 8px; /* Espaçamento entre o ícone e o texto */
+}
+
+.contact-info i {
+    font-size: 1.5rem; /* Tamanho dos ícones */
+    color: var(--blue); /* Cor dos ícones */
+}
+
+.contact-info a {
+    color: var(--text-smoke); /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.contact-info a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.footer-info p {
+    margin: 0;
+    font-size: 0.9rem; /* Tamanho da fonte para o aviso de copyright */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%; /* Posição do tooltip acima do componente */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Arrow pointing down */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when hovering */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    h3 {
+        font-size: 2rem;
+    }
+
+    .about-text {
+        max-width: 100%; /* Remove o limite de largura no texto */
+        margin-right: 0;
+    }
+
+    .about-image {
+        width: 150px; /* Tamanho reduzido para a imagem no celular */
+        height: 150px;
+    }
+
+    .project {
+        width: 100%; /* Projetos ocupam 100% da largura da tela */
+    }
+
+    .courses-container {
+        flex-direction: column; /* Coloca os cursos em uma coluna */
+    }
+
+    .course {
+        max-width: 100%; /* Cursos ocupam 100% da largura */
+    }
+
+    .parallax {
+        background-attachment: scroll; /* Remove o efeito parallax em telas pequenas */
+    }
+}
