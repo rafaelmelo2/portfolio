@@ -23,3 +23,17 @@ window.addEventListener('scroll', () => {
 });
 
 
+document.querySelectorAll('.course-section').forEach(section => {
+  section.addEventListener('click', function() {
+      // Verifica se a seção já está ativa
+      const isActive = this.classList.contains('active');
+      
+      // Remove 'active' de todas as seções
+      document.querySelectorAll('.course-section').forEach(sec => sec.classList.remove('active'));
+      
+      // Se não estava ativo, adiciona 'active' à seção clicada
+      if (!isActive) {
+          this.classList.add('active');
+      }
+  });
+});
