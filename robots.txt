@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rafaelmelo.netlify.app/sitemap.xml
