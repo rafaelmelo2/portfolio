@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfólio de Rafael da Silva Melo, estudante de Ciência da Computação com projetos em Python, JavaScript, Node.js e mais.">
+    <title>Portfólio | Rafael Melo</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://placehold.co/32x32/12073B/FFFFFF?text=RM" type="image/png">
+
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Custom styles to complement Tailwind CSS */
+        :root {
+            --purple-dark-color: #12073B;
+            --purple: #6058B8;
+            --blue: #6898E8;
+            --text-smoke: #C5C2C2;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--purple-dark-color);
+            color: var(--text-smoke);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Parallax effect for the hero section */
+        .parallax {
+            background-image: url('../imgs/hollywood-atras.jpeg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Fade-in animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom tooltip styling */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 140px;
+            background-color: #1f2937;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -70px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #1f2937 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--purple);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--blue);
+        }
+
+        /* Accordion styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        /* Timeline styles */
+        .timeline-item {
+            border-left: 3px solid var(--purple);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+    <!-- Header & Navigation -->
+    <header id="header"
+        class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-center items-center">
+            <div class="flex items-center space-x-6">
+                <a href="#about" class="hover:text-white transition-colors duration-300">Sobre</a>
+                <a href="#skills" class="hover:text-white transition-colors duration-300">Habilidades</a>
+                <a href="#experience" class="hover:text-white transition-colors duration-300">Experiência</a>
+                <a href="#education" class="hover:text-white transition-colors duration-300">Formação</a>
+                <a href="#projects" class="hover:text-white transition-colors duration-300">Projetos</a>
+                <a href="#courses" class="hover:text-white transition-colors duration-300">Aprendizados</a>
+                <a href="#contact" class="hover:text-white transition-colors duration-300">Contato</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none ml-4">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95">
+            <a href="#about" class="mobile-link block py-2 px-6 hover:bg-gray-800">Sobre</a>
+            <a href="#skills" class="mobile-link block py-2 px-6 hover:bg-gray-800">Habilidades</a>
+            <a href="#experience" class="mobile-link block py-2 px-6 hover:bg-gray-800">Experiência</a>
+            <a href="#education" class="mobile-link block py-2 px-6 hover:bg-gray-800">Formação</a>
+            <a href="#projects" class="mobile-link block py-2 px-6 hover:bg-gray-800">Projetos</a>
+            <a href="#courses" class="mobile-link block py-2 px-6 hover:bg-gray-800">Aprendizados</a>
+            <a href="#contact" class="mobile-link block py-2 px-6 hover:bg-gray-800">Contato</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="parallax">
+        <div class="h-screen flex flex-col justify-center items-center text-center bg-black/70 px-4">
+            <div class="mt-96">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 fade-in">Muito prazer, sou o Rafael.</h1>
+                <p class="text-lg md:text-2xl text-gray-200 fade-in" style="transition-delay: 200ms;">Transformando ideias em realidades digitais.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div
+                class="bg-gray-800 rounded-lg shadow-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 fade-in">
+                <div class="flex-shrink-0">
+                    <img src="https://placehold.co/250x250/6058B8/FFFFFF?text=Eu" alt="Rafael da Silva Melo"
+                        class="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-purple-500">
+                </div>
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl font-bold text-white mb-4">Sobre mim</h2>
+                    <h4 class="text-xl text-purple-400 mb-4">Estudante de Ciência da Computação</h4>
+                    <p class="mb-4"><b>Rafael da Silva Melo</b>, um entusiasta da tecnologia. Cursando o <b>5º período
+                            de Ciências da Computação</b>, mergulho de cabeça no mundo da programação. Minha jornada
+                        teve início com C e Java, e desde então, venho explorando maneiras de transformar desafios em
+                        soluções inovadoras.</p>
+                    <p class="mb-4">Explorei diversas ferramentas e linguagens, incluindo Python, Node.js, JavaScript,
+                        Go e React. Sou especialmente apaixonado por <b>Python</b> e sua capacidade de automação. No
+                        entanto, descobri uma afinidade especial com o <b>backend usando Node.js</b>, onde a
+                        flexibilidade e o desempenho se alinham com meu estilo.</p>
+                    <p>Vamos juntos construir o <b>futuro da tecnologia!</b> 🌟</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20" style="background-color: var(--purple-dark-color);">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-12 fade-in">Minhas Habilidades</h2>
+            <div id="skills-container" class="fade-in">
+                <!-- Skills will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white text-center mb-12 fade-in">Experiência Profissional</h2>
+            <div id="experience-timeline" class="relative max-w-3xl mx-auto fade-in">
+                <!-- Experience items will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20" style="background-color: var(--purple-dark-color);">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white text-center mb-12 fade-in">Formação Acadêmica</h2>
+            <div id="education-timeline" class="relative max-w-3xl mx-auto fade-in">
+                <!-- Education items will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white text-center mb-12 fade-in">Projetos</h2>
+            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project cards will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20" style="background-color: var(--purple-dark-color);">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white text-center mb-12 fade-in">Aprendizados</h2>
+            <div id="courses-accordion" class="max-w-4xl mx-auto space-y-4 fade-in">
+                <!-- Course accordions will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <footer id="contact" class="py-12 bg-gray-900">
+        <div class="container mx-auto px-6 text-center text-gray-400 fade-in">
+            <h2 class="text-3xl font-bold text-white mb-8">Entre em Contato</h2>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="mailto:rafinhalelograma@hotmail.com"
+                    class="text-3xl hover:text-white transition-colors duration-300 tooltip">
+                    <i class="fas fa-envelope"></i>
+                    <span class="tooltiptext">E-mail</span>
+                </a>
+                <a href="https://www.linkedin.com/in/rafaelmelo2234" target="_blank"
+                    class="text-3xl hover:text-white transition-colors duration-300 tooltip">
+                    <i class="fab fa-linkedin"></i>
+                    <span class="tooltiptext">LinkedIn</span>
+                </a>
+                <a href="https://github.com/rafaelmelo2" target="_blank"
+                    class="text-3xl hover:text-white transition-colors duration-300 tooltip">
+                    <i class="fab fa-github"></i>
+                    <span class="tooltiptext">GitHub</span>
+                </a>
+                <a href="https://wa.me/5564999335575" target="_blank"
+                    class="text-3xl hover:text-white transition-colors duration-300 tooltip">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="tooltiptext">WhatsApp</span>
+                </a>
+            </div>
+            <p>&copy; 2024 Rafael da Silva Melo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- DATA ---
+
+            const skillsData = [
+                {
+                    category: 'Tecnologias Principais',
+                    skills: [
+                        { name: 'Python', level: 85, icon: 'fab fa-python text-yellow-400' },
+                        { name: 'Node.js', level: 80, icon: 'fab fa-node-js text-green-500' },
+                        { name: 'JavaScript', level: 75, icon: 'fab fa-js-square text-yellow-500' },
+                        { name: 'React', level: 70, icon: 'fab fa-react text-blue-400' },
+                        { name: 'SQL', level: 70, icon: 'fas fa-database text-indigo-400' },
+                        { name: 'Java', level: 65, icon: 'fab fa-java text-red-500' },
+                    ]
+                },
+                {
+                    category: 'Ferramentas e Tecnologias Secundárias',
+                    skills: [
+                        { name: 'HTML5', level: 90, icon: 'fab fa-html5 text-orange-500' },
+                        { name: 'CSS3', level: 85, icon: 'fab fa-css3-alt text-blue-500' },
+                        { name: 'Git & GitHub', level: 80, icon: 'fab fa-github text-white' },
+                        { name: 'TailwindCSS', level: 75, icon: 'fas fa-wind text-cyan-400' },
+                        { name: 'C Language', level: 60, icon: 'fas fa-copyright text-gray-400' },
+                        { name: 'Lua', level: 50, icon: 'fas fa-moon text-purple-400' },
+                    ]
+                }
+            ];
+
+            const experienceData = [
+                {
+                    role: 'Estagiário de Inteligência Artificial',
+                    company: 'HPE Automotores do Brasil Ltda.',
+                    period: 'Jun 2025 - o momento',
+                    description: 'Atuação na área de IA, desenvolvendo e implementando soluções inovadoras para a empresa.'
+                },
+                {
+                    role: 'Estagiário de desenvolvimento',
+                    company: 'HPE Automotores do Brasil Ltda.',
+                    period: 'Set 2024 - Jun 2025',
+                    description: 'Auxílio no service desk, análise de sistemas, levantamento de dados para implantação de novos sistemas, elaboração de manuais e avaliação de tecnologias de mercado.'
+                },
+                {
+                    role: 'Estagiário de TI',
+                    company: 'Serra do Facão Energia [SEFAC]',
+                    period: 'Jun 2024 - Set 2024',
+                    description: 'Apoio na solução de problemas de hardware e software, acompanhamento de chamados, manutenção de aplicações e suporte geral aos usuários e infraestrutura de TI.'
+                },
+                {
+                    role: 'Desenvolvedor Front-end',
+                    company: 'Universidade Federal de Catalão',
+                    period: 'Mai 2024 - Ago 2024',
+                    description: 'Desenvolvimento de um projeto interno para a UFCAT, com o objetivo de criar um sistema web de uso privado, utilizando Vue.js e TypeScript.'
+                },
+                {
+                    role: 'Plantonista Analista de TI',
+                    company: 'Hospital Nasr Faiad',
+                    period: 'Abr 2022 - o momento',
+                    description: 'Realização de plantões de TI durante os finais de semana, garantindo a disponibilidade e funcionamento dos sistemas e infraestrutura do hospital.'
+                },
+                {
+                    role: 'Analista de TI',
+                    company: 'Hospital Nasr Faiad',
+                    period: 'Jun 2021 - Dez 2021',
+                    description: 'Monitoramento de hardware e sistemas, suporte à gestão de qualidade (5S, fluxogramas), desenvolvimento de indicadores de desempenho em Excel e suporte técnico geral.'
+                }
+            ];
+
+            const educationData = [
+                {
+                    institution: 'Universidade Federal de Goiás (UFG)',
+                    course: 'Bacharelado, Ciência da Computação',
+                    period: 'Mai 2022 - o momento',
+                    description: 'Cursando graduação com foco nos fundamentos da computação, algoritmos, estruturas de dados e desenvolvimento de software.'
+                },
+                {
+                    institution: 'Universidade Federal de Uberlândia (UFU)',
+                    course: 'Bacharelado, Gestão de Sistemas de Informação',
+                    period: 'Jul 2021 - Mai 2022',
+                    description: 'Curso cancelado. Período inicial de estudos na área de tecnologia e sistemas de informação.'
+                }
+            ];
+
+            const projectsData = [
+                { img: 'https://placehold.co/400x300/1f2937/FFFFFF?text=Ponto+do+Lanche', title: 'Melhoria Projeto Hamburgueria', link: 'https://github.com/rafaelmelo2/pontodolanche_frontend', site: 'https://pontodolanche.netlify.app/', description: 'Melhorias: Pedidos pelo celular, cardápio online, site completo, banco de dados em nuvem.', status: 'Em andamento', tech: ['react', 'bootstrap', 'js', 'node-js', 'postgresql'] },
+                { img: 'https://placehold.co/400x300/1f2937/FFFFFF?text=Trade+Bot', title: 'Bot de Trade Cripto', link: 'https://github.com/rafaelmelo2/tradebot-cripto', description: 'Bot para compra e venda de criptomoedas, com regras de negócio customizadas.', status: 'Finalizado', tech: ['python', 'sqlite'] },
+                { img: 'https://placehold.co/400x300/1f2937/FFFFFF?text=API+Instagram', title: 'API Simulação Instagram', link: 'https://github.com/rafaelmelo2/api-fafas-2023', description: 'API com funções de cadastrar, editar, buscar e apagar posts, simulando o Instagram.', status: 'Finalizado', tech: ['html5', 'css3-alt', 'js', 'node-js'] },
+                { img: 'https://placehold.co/400x300/1f2937/FFFFFF?text=Bot+WhatsApp', title: 'Bot de Respostas WhatsApp', link: 'https://github.com/rafaelmelo2/botwhatsapp-pontodolanche', description: 'Fork de um bot para WhatsApp, customizado com cardápio para receber pedidos automaticamente.', status: 'Em andamento', tech: ['whatsapp', 'js', 'sqlite'] },
+                { img: 'https://placehold.co/400x300/1f2937/FFFFFF?text=Rachel-flix', title: 'Rachel-flix', link: 'https://github.com/rafaelmelo2/rachel-flix', site: 'https://rachelflix.netlify.app/', description: 'Réplica da interface da Netflix, desenvolvida como um projeto de presente.', status: 'Finalizado', tech: ['html5', 'css3-alt', 'js'] },
+                { img: 'https://placehold.co/400x300/1f2937/FFFFFF?text=Assistente+Virtual', title: 'Assistente virtual', link: 'https://github.com/rafaelmelo2/Fael_assistente_virtual_2020', description: 'Chat-bot com comandos de voz para automação de tarefas no computador. Modelo antigo e depreciado.', status: 'Finalizado', tech: ['python', 'js'] },
+            ];
+
+            const coursesData = [
+                {
+                    category: 'Andamento',
+                    items: [
+                        { type: 'book', title: 'Livro Código Limpo', link: 'https://www.amazon.com.br/C%C3%B3digo-limpo-Robert-C-Martin/dp/8576082675', description: 'Leitura sobre práticas de desenvolvimento de software para código legível e manutenível.', progress: 25 },
+                        { type: 'course', title: 'React do Zero a Maestria', link: 'https://www.udemy.com/course/react-do-zero-a-maestria-c-hooks-router-api-projetos/', description: 'Curso aprofundado em React com hooks, router e API.', progress: 15 },
+                    ]
+                },
+                {
+                    category: 'Finalizados',
+                    items: [
+                        { type: 'course', title: 'Formação programador BackEnd - NodeJS 2024', link: 'https://www.udemy.com/certificate/UC-49709eea-2d64-411e-9a64-b6a3238a4c2e/', description: 'Formação completa em desenvolvimento Backend com Node.js.' },
+                        { type: 'course', title: 'Versionamento de Código com Git e GitHub', link: 'https://hermes.dio.me/certificates/5WB6TLYW.pdf', description: 'Curso essencial sobre controle de versão.' },
+                    ]
+                },
+                {
+                    category: 'Pretensões',
+                    items: [
+                        { type: 'book', title: 'Scrum: A arte de fazer o dobro do trabalho na metade do tempo', description: 'Leitura focada em produtividade e gerenciamento ágil de projetos.' },
+                        { type: 'course', title: 'Machine Learning e Data Science com Python de A a Z', link: 'https://www.udemy.com/course/machine-learning-e-data-science-com-python-y/', description: 'Futuro curso para aprofundar em análise de dados e ML.' },
+                    ]
+                }
+            ];
+
+            const techIconsMap = {
+                'python': 'fab fa-python', 'js': 'fab fa-js', 'c': 'fas fa-copyright', 'terminal': 'fas fa-terminal',
+                'lua': 'fas fa-moon', 'html5': 'fab fa-html5', 'css3-alt': 'fab fa-css3-alt', 'node-js': 'fab fa-node-js',
+                'java': 'fab fa-java', 'postgresql': 'fas fa-database', 'react': 'fab fa-react', 'bootstrap': 'fab fa-bootstrap',
+                'whatsapp': 'fab fa-whatsapp', 'sqlite': 'fas fa-database'
+            };
+
+            const courseTypeIcons = {
+                'book': 'fas fa-book-open',
+                'course': 'fas fa-chalkboard-teacher'
+            };
+
+
+            // --- DYNAMIC CONTENT INJECTION ---
+
+            // Inject Skills
+            const skillsContainer = document.getElementById('skills-container');
+            skillsData.forEach(category => {
+                const categoryTitle = `<h3 class="text-2xl font-bold text-white mb-8 mt-4">${category.category}</h3>`;
+                const skillsGrid = category.skills.map(skill => `
+                    <div class="bg-gray-800/50 p-4 rounded-lg">
+                        <div class="flex items-center justify-between mb-2">
+                             <div class="flex items-center">
+                                <i class="${skill.icon} text-2xl mr-3"></i>
+                                <span class="text-white font-semibold">${skill.name}</span>
+                            </div>
+                            <span class="text-sm font-bold text-purple-400">${skill.level}%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-purple-500 h-2.5 rounded-full" style="width: ${skill.level}%"></div>
+                        </div>
+                    </div>
+                `).join('');
+                skillsContainer.innerHTML += `${categoryTitle}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">${skillsGrid}</div>`;
+            });
+
+            // Function to create timeline items
+            const createTimelineItem = (item) => `
+                <div class="timeline-item pl-8 pb-8 relative">
+                    <div class="absolute -left-1.5 top-1 w-3 h-3 bg-white rounded-full"></div>
+                    <p class="text-sm text-purple-400 mb-1">${item.period}</p>
+                    <h3 class="text-xl font-bold text-white">${item.role || item.course}</h3>
+                    <h4 class="text-md text-gray-400 font-semibold mb-2">${item.company || item.institution}</h4>
+                    <p class="text-gray-400">${item.description}</p>
+                </div>
+            `;
+
+            // Inject Experience
+            const experienceContainer = document.getElementById('experience-timeline');
+            experienceData.forEach(item => {
+                experienceContainer.innerHTML += createTimelineItem(item);
+            });
+
+            // Inject Education
+            const educationContainer = document.getElementById('education-timeline');
+            educationData.forEach(item => {
+                educationContainer.innerHTML += createTimelineItem(item);
+            });
+
+
+            // Inject Projects
+            const projectsContainer = document.getElementById('projects-container');
+            projectsData.forEach(project => {
+                const techIcons = project.tech.map(t => `<i class="${techIconsMap[t]} text-2xl tooltip"><span class="tooltiptext">${t.charAt(0).toUpperCase() + t.slice(1)}</span></i>`).join('');
+                const statusColor = project.status === 'Finalizado' ? 'bg-green-500/20 text-green-400' :
+                    project.status === 'Em andamento' ? 'bg-yellow-500/20 text-yellow-400' : 'bg-gray-500/20 text-gray-400';
+
+                const projectCard = `
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col transform transition-transform hover:-translate-y-2 fade-in">
+                        <img src="${project.img}" alt="${project.title}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1f2937/FFFFFF?text=Imagem+Indispon%C3%ADvel';">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold text-white">${project.title}</h3>
+                                <span class="text-xs font-semibold px-2 py-1 rounded-full flex-shrink-0 ${statusColor}">${project.status}</span>
+                            </div>
+                            <p class="text-gray-400 mb-4 flex-grow">${project.description}</p>
+                            <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-700">
+                                <div class="flex space-x-4 text-gray-400">
+                                    ${techIcons}
+                                </div>
+                                <div class="flex space-x-2">
+                                     ${project.site ? `<a href="${project.site}" target="_blank" class="text-purple-400 hover:text-white transition-colors duration-300"><i class="fas fa-external-link-alt"></i> Site</a>` : ''}
+                                     <a href="${project.link}" target="_blank" class="text-purple-400 hover:text-white transition-colors duration-300"><i class="fab fa-github"></i> Código</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                projectsContainer.innerHTML += projectCard;
+            });
+
+            // Inject Courses
+            const coursesContainer = document.getElementById('courses-accordion');
+            coursesData.forEach((courseCategory) => {
+                const itemsHtml = courseCategory.items.map(item => `
+                    <div class="bg-gray-800/50 p-4 rounded-lg mt-2">
+                        <div class="flex justify-between items-start">
+                             <div class="flex items-start">
+                                <i class="${courseTypeIcons[item.type] || 'fas fa-graduation-cap'} text-purple-400 text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white">${item.title}</h4>
+                                    <p class="text-sm text-gray-400 mt-1">${item.description}</p>
+                                </div>
+                             </div>
+                             ${item.link ? `<a href="${item.link}" target="_blank" class="text-purple-400 hover:text-white text-sm flex-shrink-0 ml-4"><i class="fas fa-link"></i> Link</a>` : ''}
+                        </div>
+                        ${item.progress ? `
+                        <div class="mt-3 pl-8">
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-purple-500 h-2.5 rounded-full" style="width: ${item.progress}%"></div>
+                            </div>
+                            <p class="text-right text-sm text-gray-400 mt-1">${item.progress}%</p>
+                        </div>
+                        ` : ''}
+                    </div>
+                `).join('');
+
+                const accordionItem = `
+                    <div>
+                        <button class="accordion-button w-full text-left bg-gray-800 p-4 rounded-lg flex justify-between items-center hover:bg-gray-700 transition-colors duration-300">
+                            <h3 class="text-xl font-bold text-white">${courseCategory.category}</h3>
+                            <i class="fas fa-chevron-down text-white transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 pt-0 space-y-2">
+                                ${itemsHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                coursesContainer.innerHTML += accordionItem;
+            });
+
+            // --- EVENT LISTENERS & FUNCTIONALITY ---
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.querySelector('i').classList.toggle('fa-bars');
+                mobileMenuButton.querySelector('i').classList.toggle('fa-times');
+            });
+
+            const closeMenu = () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                mobileMenuButton.querySelector('i').classList.remove('fa-times');
+            }
+
+            mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+            // Header shadow on scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('shadow-lg', window.scrollY > 50);
+            });
+
+            // Fade-in elements on scroll
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeInElements.forEach(el => observer.observe(el));
+
+            // Accordion functionality
+            document.querySelectorAll('.accordion-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('i');
+                    const isOpening = !content.style.maxHeight;
+
+                    // Close all other accordions
+                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                    document.querySelectorAll('.accordion-button i').forEach(i => i.classList.remove('rotate-180'));
+
+                    if (isOpening) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
