@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfólio de Rafael da Silva Melo, estudante de Ciência da Computação com projetos em Python, JavaScript, Node.js e mais.">
+    <title>Portfólio | Rafael Melo</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://placehold.co/32x32/12073B/FFFFFF?text=RM" type="image/png">
+
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Data -->
+    <script src="data.js"></script>
+
+    <!-- Functions -->
+    <script src="functions.js"></script>
+</head>
+
+<body class="bg-black text-white">
+
+    <!-- Hero Section -->
+    <main id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden" style="height: 100vh; width: 100vw; max-width: 100%;">
+        <canvas id="hero-canvas"></canvas>
+        
+        
+        <div class="hero-content flex flex-col items-center px-4">
+            <div class="hero-text-container">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 hero-title">
+                    <span class="hero-word" style="animation-delay: 0.2s;">Muito</span>
+                    <span class="hero-word" style="animation-delay: 0.4s;">prazer,</span>
+                    <span class="hero-word" style="animation-delay: 0.6s;">sou</span>
+                    <span class="hero-word hero-accent" style="animation-delay: 0.8s;">o</span>
+                    <span class="hero-word hero-accent" style="animation-delay: 1s;">Rafael.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-text-secondary max-w-3xl hero-subtitle" style="animation-delay: 1.2s;">
+                    Transformando ideias em realidades digitais com código e criatividade.
+                </p>
+                <div class="hero-buttons flex flex-col sm:flex-row gap-4 mt-8" style="animation-delay: 1.4s;">
+                    <a href="#about"
+                        class="bg-primary-accent text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-80 transition-all duration-300 transform hover:scale-105">
+                        Conhecer Mais
+                    </a>
+                    <a href="#projects"
+                        class="border-2 border-primary-accent text-primary-accent font-bold py-3 px-8 rounded-full text-lg hover:bg-primary-accent hover:text-white transition-all duration-300 transform hover:scale-105">
+                        Ver Projetos
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2" style="animation-delay: 1.6s;">
+            <div class="scroll-arrow"></div>
+            <span class="text-sm text-text-secondary mt-2">Role para baixo</span>
+        </div>
+    </main>
+
+    <!-- CV Layout Container - Hidden initially -->
+    <div class="cv-container cv-hidden">
+        <!-- Sidebar -->
+        <aside class="cv-sidebar">
+            <div class="cv-profile-section">
+                <img src="../imgs/eu.jpeg" alt="Rafael da Silva Melo" class="cv-profile-img">
+                <h1 class="text-2xl font-bold text-white mb-2">Rafael da Silva Melo</h1>
+                <h2 class="text-lg text-[var(--primary-accent)] mb-4">Cientista da computação</h2>
+                <p class="text-text-secondary text-sm leading-relaxed">
+                    Desenvolvedor apaixonado por Python e Node.js, transformando ideias em soluções digitais inovadoras.
+                </p>
+            </div>
+
+            <div class="cv-contact-section">
+                <h3 class="text-lg font-semibold text-white mb-4">Contato</h3>
+                
+                <div class="cv-contact-item">
+                    <div class="cv-contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-text-secondary">Email</p>
+                        <a href="mailto:rafinhalelograma@hotmail.com" class="text-sm text-white hover:text-[var(--primary-accent)] transition-colors">
+                            rafinhalelograma@hotmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cv-contact-item">
+                    <div class="cv-contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-text-secondary">LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/rafaelmelo2234" target="_blank" class="text-sm text-white hover:text-[var(--primary-accent)] transition-colors">
+                            rafaelmelo2234
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cv-contact-item">
+                    <div class="cv-contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-text-secondary">GitHub</p>
+                        <a href="https://github.com/rafaelmelo2" target="_blank" class="text-sm text-white hover:text-[var(--primary-accent)] transition-colors">
+                            rafaelmelo2
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cv-contact-item">
+                    <div class="cv-contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-text-secondary">WhatsApp</p>
+                        <a href="https://wa.me/5564999335575" target="_blank" class="text-sm text-white hover:text-[var(--primary-accent)] transition-colors">
+                            (64) 99933-5575
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <div class="cv-nav-section mt-6">
+                <h3 class="text-lg font-semibold text-white mb-4">Navegação</h3>
+                <nav>
+                    <a href="#about" class="cv-nav-link block py-2 px-3 text-text-secondary hover:text-white hover:bg-[var(--primary-accent)]/20 rounded-lg transition-all">
+                        <i class="fas fa-user mr-2"></i>Sobre
+                    </a>
+                    <a href="#skills" class="cv-nav-link block py-2 px-3 text-text-secondary hover:text-white hover:bg-[var(--primary-accent)]/20 rounded-lg transition-all">
+                        <i class="fas fa-code mr-2"></i>Habilidades
+                    </a>
+                    <a href="#experience" class="cv-nav-link block py-2 px-3 text-text-secondary hover:text-white hover:bg-[var(--primary-accent)]/20 rounded-lg transition-all">
+                        <i class="fas fa-briefcase mr-2"></i>Experiência
+                    </a>
+                    <a href="#projects" class="cv-nav-link block py-2 px-3 text-text-secondary hover:text-white hover:bg-[var(--primary-accent)]/20 rounded-lg transition-all">
+                        <i class="fas fa-project-diagram mr-2"></i>Projetos
+                    </a>
+                    <a href="#certifications" class="cv-nav-link block py-2 px-3 text-text-secondary hover:text-white hover:bg-[var(--primary-accent)]/20 rounded-lg transition-all">
+                        <i class="fas fa-certificate mr-2"></i>Certificações
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="cv-main-content">
+
+            <!-- About Me Section -->
+            <section id="about" class="cv-section">
+                <h2 class="text-3xl font-bold text-white mb-6 fade-in">Sobre mim</h2>
+                <div class="fade-in">
+                    <p class="mb-4 text-text-secondary leading-relaxed text-lg">
+                        <b>Rafael da Silva Melo</b>, um entusiasta da tecnologia. Cursando o <b>7º período de Ciências da Computação</b>, 
+                        mergulho de cabeça no mundo da programação. Minha jornada teve início com C e Java, e desde então, 
+                        venho explorando maneiras de transformar desafios em soluções inovadoras.
+                    </p>
+                    <p class="mb-4 text-text-secondary leading-relaxed text-lg">
+                        Explorei diversas ferramentas e linguagens, incluindo Python, Node.js, JavaScript, Go e React. 
+                        Sou especialmente apaixonado por <b>Python</b> e sua capacidade de automação. No entanto, 
+                        descobri uma afinidade especial com o <b>backend usando Node.js</b>, onde a flexibilidade e o 
+                        desempenho se alinham com meu estilo.
+                    </p>
+                    <p class="text-white font-semibold text-lg">
+                        Vamos juntos construir o <span class="text-[var(--primary-accent)]">futuro da tecnologia!</span> 🌟
+                    </p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="cv-section">
+                <h2 class="text-3xl font-bold text-white mb-6 fade-in">Minhas Habilidades</h2>
+                <div id="skills-container" class="fade-in">
+                    <!-- Skills will be injected here by JS -->
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="cv-section">
+                <h2 class="text-3xl font-bold text-white mb-6 fade-in">Experiência Profissional</h2>
+                <div id="experience-timeline" class="relative fade-in">
+                    <!-- Experience items will be injected here by JS -->
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="cv-section">
+                <h2 class="text-3xl font-bold text-white mb-6 fade-in">Formação Acadêmica</h2>
+                <div id="education-timeline" class="relative fade-in">
+                    <!-- Education items will be injected here by JS -->
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="cv-section">
+                <h2 class="text-3xl font-bold text-white mb-6 fade-in">Projetos</h2>
+                <div class="relative fade-in">
+                    <div class="carousel-container overflow-hidden rounded-lg">
+                        <div id="projects-carousel">
+                            <!-- Project cards will be injected here by JS -->
+                        </div>
+                    </div>
+                    <button id="projects-prev-btn"
+                        class="carousel-btn absolute left-0 md:-left-4 top-1/2 transform -translate-y-1/2 text-white p-3 rounded-full z-10 hidden md:block">
+                        <i class="fas fa-chevron-left text-2xl"></i>
+                    </button>
+                    <button id="projects-next-btn"
+                        class="carousel-btn absolute right-0 md:-right-4 top-1/2 transform -translate-y-1/2 text-white p-3 rounded-full z-10 hidden md:block">
+                        <i class="fas fa-chevron-right text-2xl"></i>
+                    </button>
+                    <div id="projects-dots-container" class="flex justify-center mt-8 space-x-3">
+                        <!-- Dots will be injected here by JS -->
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="cv-section">
+                <h2 class="text-3xl font-bold text-white mb-6 fade-in">Cursos e Certificações</h2>
+                <div class="relative fade-in">
+                    <div class="carousel-container overflow-hidden rounded-lg">
+                        <div id="certifications-carousel">
+                            <!-- Certification cards will be injected here by JS -->
+                        </div>
+                    </div>
+                    <button id="certifications-prev-btn"
+                        class="carousel-btn absolute left-0 md:-left-4 top-1/2 transform -translate-y-1/2 text-white p-3 rounded-full z-10 hidden md:block">
+                        <i class="fas fa-chevron-left text-2xl"></i>
+                    </button>
+                    <button id="certifications-next-btn"
+                        class="carousel-btn absolute right-0 md:-right-4 top-1/2 transform -translate-y-1/2 text-white p-3 rounded-full z-10 hidden md:block">
+                        <i class="fas fa-chevron-right text-2xl"></i>
+                    </button>
+                    <div id="certifications-dots-container" class="flex justify-center mt-8 space-x-3">
+                        <!-- Dots will be injected here by JS -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-bg-dark border-t border-[var(--border-color)] py-8">
+        <div class="container mx-auto px-6 text-center text-text-secondary">
+            <p class="text-sm">&copy; 2024 Rafael da Silva Melo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializePortfolio();
+        });
+    </script>
+</body>
+
+</html>
