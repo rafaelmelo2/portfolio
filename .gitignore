@@ -1,2 +1,5 @@
 teste_cara/*
 .vscode/
+
+node_modules/
+dist/
