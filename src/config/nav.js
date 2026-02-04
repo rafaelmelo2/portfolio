@@ -11,7 +11,7 @@ export const navLinks = [
   { label: 'Skills', scrollId: 'skills' },
   { label: 'Cursos', scrollId: 'cursos' },
   { label: 'Livros', scrollId: 'livros' },
-  { label: 'Depoimentos', scrollId: 'depoimentos' },
+  // { label: 'Depoimentos', scrollId: 'depoimentos' },
   { label: 'Contato', scrollId: 'contato' },
   { label: 'Blog', scrollId: 'blog', isRoute: true },
 ]

@@ -5,7 +5,7 @@
       "id": "email",
       "tipo": "email",
       "label": "E-mail",
-      "url": "mailto:seu@email.com",
+      "url": "mailto:rafaelmellodev@gmail.com",
       "icone": "Mail"
     },
     {
@@ -32,7 +32,6 @@
   ],
   "formulario": {
     "titulo": "Pronto para o Próximo Nível",
-    "subtitulo": "Combinando energia, técnica e visão de negócio. Estou disponível para entrevistas e desafios técnicos.",
-    "enabled": true
+    "subtitulo": "Combinando energia, técnica e visão de negócio. Estou disponível para entrevistas e desafios técnicos."
   }
 }

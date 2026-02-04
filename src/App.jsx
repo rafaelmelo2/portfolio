@@ -9,7 +9,7 @@ import {
   Skills,
   Livros,
   Cursos,
-  Testimonials,
+  // Testimonials,
   Contact,
   Footer,
   Blog,
@@ -35,7 +35,7 @@ function HomePage({ scrollTo }) {
       <Skills />
       <Cursos />
       <Livros />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Contact />
     </>
   )

@@ -9,7 +9,7 @@ const LABEL_TO_ID = {
   Skills: 'skills',
   Cursos: 'cursos',
   Livros: 'livros',
-  Depoimentos: 'depoimentos',
+  // Depoimentos: 'depoimentos',
   Contato: 'contato',
   Blog: 'blog',
 }
@@ -29,7 +29,7 @@ export function Navbar({ isMenuOpen, setIsMenuOpen, scrolled }) {
           className="text-xl md:text-2xl font-bold tracking-tighter text-emerald-400 cursor-pointer z-50 hover:text-emerald-300 transition-colors"
           onClick={handleNavClick}
         >
-          DEV<span className="text-slate-100">.AI</span>
+          RAFAEL<span className="text-slate-100">.MELO</span>
         </Link>
 
         <div className="hidden md:flex gap-6 lg:gap-8 text-sm font-medium text-slate-300">

@@ -1,22 +1,22 @@
 import { BookOpen } from 'lucide-react'
 import { livros } from '../data'
 
-const STATUS_ORDEM = ['lendo', 'li', 'ler']
+const STATUS_ORDEM = ['li', 'lendo', 'ler']
 const STATUS_LABEL = {
-  lendo: 'Lendo',
   li: 'Lido',
+  lendo: 'Lendo',
   ler: 'Quero ler',
 }
 const STATUS_COLOR = {
-  lendo: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
   li: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+  lendo: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
   ler: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
 }
 
 const MAX_VISIVEIS_SEM_ROLAGEM = 4
 
 function agruparPorStatus(lista) {
-  const grupos = { lendo: [], li: [], ler: [] }
+  const grupos = {li: [], lendo: [], ler: [] }
   lista.forEach((livro) => {
     const status = STATUS_ORDEM.includes(livro.status) ? livro.status : 'ler'
     if (grupos[status]) grupos[status].push(livro)

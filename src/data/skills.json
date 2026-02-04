@@ -1,29 +1,64 @@
 {
   "_schema": "core: { skill, porcentagem }, frameworks: string[], ferramentas: string[]",
   "core": [
-    { "skill": "Python (Data Science Ecosystem)", "porcentagem": 95 },
-    { "skill": "Computer Vision (OpenCV/YOLO)", "porcentagem": 80 },
-    { "skill": "SQL & Database Design", "porcentagem": 75 },
-    { "skill": "JavaScript/React", "porcentagem": 60 }
+    {
+      "skill": "JavaScript / TypeScript",
+      "porcentagem": 75
+    },
+    {
+      "skill": "Python",
+      "porcentagem": 70
+    },
+    {
+      "skill": "SQL",
+      "porcentagem": 75
+    },
+    {
+      "skill": "React",
+      "porcentagem": 65
+    },
+    {
+      "skill": "Node.js",
+      "porcentagem": 60
+    },
+    {
+      "skill": "HTML / CSS",
+      "porcentagem": 80
+    },
+    {
+      "skill": "Java",
+      "porcentagem": 55
+    },
+    {
+      "skill": "PHP / Laravel",
+      "porcentagem": 50
+    },
+    {
+      "skill": "Dados (ETL, visualização)",
+      "porcentagem": 55
+    }
   ],
   "frameworks": [
-    "PyTorch",
-    "TensorFlow",
-    "Keras",
-    "Scikit-learn",
-    "Pandas",
-    "NumPy",
-    "Matplotlib",
-    "FastAPI",
-    "Flask"
+    "React",
+    "Tailwind CSS",
+    "Laravel",
+    "Laravel Passport",
+    "Plotly",
+    "Polars",
+    "ChatterBot",
+    "Node.js",
+    "N8N",
+    ""
   ],
   "ferramentas": [
-    "Git/GitHub",
+    "Git / GitHub",
     "Docker",
-    "Linux/Bash",
-    "Jira",
+    "Linux / Bash",
+    "PostgreSQL",
+    "Oracle",
+    "OAuth2",
     "VS Code",
-    "Colab",
-    "AWS"
+    "Windows",
+    "Office 365"
   ]
 }

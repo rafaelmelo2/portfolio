@@ -1,5 +1,5 @@
-import { useEffect, useCallback, useState } from 'react'
-import { X, ExternalLink } from 'lucide-react'
+import { ExternalLink, X } from 'lucide-react'
+import { useCallback, useEffect, useState } from 'react'
 
 const TAMANHOS = [
   { label: '50%', value: 50 },

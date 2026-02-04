@@ -13,7 +13,7 @@ export function Hero({ scrollTo }) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Disponível para contratação Full-time
+            Disponível para contratação
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-100 mb-6 leading-tight">
           Onde código encontra <br />

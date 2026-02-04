@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, Globe, Send } from 'lucide-react'
+import { Mail, Linkedin, Github, Globe } from 'lucide-react'
 import { contatos, contatoFormulario } from '../data'
 
 const ICONES = {
@@ -38,7 +38,7 @@ function ContactLink({ item }) {
 }
 
 export function Contact() {
-  const { titulo, subtitulo, enabled } = contatoFormulario
+  const { titulo, subtitulo } = contatoFormulario
 
   return (
     <section id="contato" className="py-16 md:py-20 bg-gradient-to-t from-slate-900 via-slate-900 to-slate-800/20">
@@ -48,51 +48,11 @@ export function Contact() {
           {subtitulo}
         </p>
 
-        <div className="flex justify-center gap-6 mb-12 flex-wrap">
+        <div className="flex justify-center gap-6 flex-wrap">
           {contatos.map((item) => (
             <ContactLink key={item.id} item={item} />
           ))}
         </div>
-
-        {enabled && (
-          <form
-            className="text-left space-y-4 bg-slate-800/30 p-6 md:p-8 rounded-2xl border border-slate-700 shadow-2xl"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-slate-400 mb-1">Nome</label>
-                <input
-                  type="text"
-                  className="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-base text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors"
-                  placeholder="Recrutador / Empresa"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-400 mb-1">Email</label>
-                <input
-                  type="email"
-                  className="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-base text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors"
-                  placeholder="contato@empresa.com"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-slate-400 mb-1">Mensagem</label>
-              <textarea
-                rows="4"
-                className="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-base text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors resize-y min-h-[120px]"
-                placeholder="Gostaríamos de agendar uma entrevista..."
-              />
-            </div>
-            <button
-              type="button"
-              className="w-full min-h-[48px] bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-900 font-bold py-4 px-8 rounded-lg transition-all flex justify-center items-center gap-2 shadow-lg shadow-emerald-500/20 touch-manipulation"
-            >
-              Enviar Mensagem <Send size={18} />
-            </button>
-          </form>
-        )}
       </div>
     </section>
   )

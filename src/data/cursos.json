@@ -2,14 +2,54 @@
   "_schema": "titulo, instituicao, periodo, cargaHoraria, link (arquivo local ou URL do certificado), linkValidacao (URL da plataforma para validar o certificado), observacoes",
   "cursos": [
     {
-      "id": "exemplo-react",
-      "titulo": "EXEMPLO",
-      "instituicao": "Alura",
+      "id": "crie-site-simples",
+      "titulo": "Crie um site simples usando HTML, CSS e JavaScript",
+      "instituicao": "Fundação Bradesco",
       "periodo": "2024",
-      "cargaHoraria": "26h",
-      "link": "",
-      "linkValidacao": "https://cursos.alura.com.br/certificate/00000000-0000-0000-0000-000000000000",
-      "observacoes": "Componentes, hooks e boas práticas. Substitua o PDF em public/certificados/ e o linkValidacao pelo URL real do seu certificado."
+      "cargaHoraria": "2h",
+      "link": "/certificados/Certificado Crie um site simples usando HTML, CSS e JavaScript.pdf",
+      "linkValidacao": "https://www.ev.org.br/validar-certificado",
+      "observacoes": "Aprendendo a criar um site simples usando HTML, CSS e JavaScript."
+    },
+    {
+      "id": "versionamento-codigo-git-github",
+      "titulo": "Versionamento de Código com Git e GitHub",
+      "instituicao": "DIO",
+      "periodo": "2025",
+      "cargaHoraria": "2h",
+      "link": "/certificados/Certificado Versionamento de Código com Git e GitHub.pdf",
+      "linkValidacao": "",
+      "observacoes": "Aprendendo a versionar o código com Git e GitHub."
+    },
+    {
+      "id": "metodo-cis-global-inteligencia-emocional",
+      "titulo": "MÉTODO CIS GLOBAL - INTELIGÊNCIA EMOCIONAL",
+      "instituicao": "Priscila Papazissis",
+      "periodo": "2025",
+      "cargaHoraria": "60h",
+      "link": "/certificados/Certificado - MÉTODO CIS GLOBAL - INTELIGÊNCIA EMOCIONAL.pdf",
+      "linkValidacao": "",
+      "observacoes": "Coaching Integral Sistêmico, para desenvolver a Inteligência Emocional."
+    },
+    {
+      "id": "projeto-completo-python-com-estrutura-de-dados",
+      "titulo": "Desenvolvendo Projeto Completo python com estrutura de dados",
+      "instituicao": "Fundação Bradesco",
+      "periodo": "2024",
+      "cargaHoraria": "10h",
+      "link": "/certificados/Certificado Desenvolvendo Projeto Completo python com estrutura de dados.pdf",
+      "linkValidacao": "https://www.ev.org.br/validar-certificado",
+      "observacoes": "Projeto realizado com Python e estrutura de dados."
+    },
+    {
+      "id": "formacao-programado-backend-nodejs-2024",
+      "titulo": "Formação programado backend - NodeJS 2024",
+      "instituicao": "Udemy",
+      "periodo": "2024",
+      "cargaHoraria": "11.5h",
+      "link": "/certificados/Certificado Formação programado backend - NodeJS 2024.pdf",
+      "linkValidacao": "https://ude.my/UC-49709eea-2d64-411e-9a64-b6a3238a4c2e",
+      "observacoes": "Formação em backend com Node.js."
     },
     {
       "id": "comunicacao-empresarial",
@@ -22,23 +62,83 @@
       "observacoes": "Aprimoramento pessoal de comunicação profissional e habilidades interpessoais."
     },
     {
-      "id": "crie-site-simples",
-      "titulo": "Crie um site simples usando HTML, CSS e JavaScript",
-      "instituicao": "Fundação Bradesco",
-      "periodo": "2024",
-      "cargaHoraria": "26h",
-      "link": "/certificados/Certificado Crie um site simples usando HTML, CSS e JavaScript.pdf",
-      "linkValidacao": "https://www.ev.org.br/validar-certificado",
-      "observacoes": "Aprendendo a criar um site simples usando HTML, CSS e JavaScript."
+      "id": "scrum-guia-completo",
+      "titulo": "Scrum - Guia Completo",
+      "instituicao": "UDEMY",
+      "periodo": "2023",
+      "cargaHoraria": "3h",
+      "link": "/certificados/Scrum_udemy_certificado.pdf",
+      "linkValidacao": "https://ude.my/UC-9845a8d8-bf4e-42a3-badb-8fefbb326057",
+      "observacoes": "Metodologia ágil Scrum para gestão de projetos."
     },
     {
-      "id": "iniciação-pesquisa",
+      "id": "projetos-de-sistemas-de-ti",
+      "titulo": "Projetos de Sistemas de TI",
+      "instituicao": "Fundação Bradesco",
+      "periodo": "2024",
+      "cargaHoraria": "15h",
+      "link": "/certificados/Certificado Projetos de Sistemas de TI.pdf",
+      "linkValidacao": "https://www.ev.org.br/validar-certificado",
+      "observacoes": "Aprendendo a criar projetos de sistemas de TI."
+    },
+    {
+      "id": "lgpd",
+      "titulo": "Lei Geral de Proteção de Dados - LGPD",
+      "instituicao": "Fundação Bradesco",
+      "periodo": "2024",
+      "cargaHoraria": "2h",
+      "link": "/certificados/Certificado LGPD.pdf",
+      "linkValidacao": "https://www.ev.org.br/validar-certificado",
+      "observacoes": "Aprendendo a proteger os dados pessoais e sensíveis."
+    },
+    {
+      "id": "fundamentos-de-advpl",
+      "titulo": "Fundamentos de AdvPL",
+      "instituicao": "TOTVS",
+      "periodo": "2024",
+      "cargaHoraria": "16h",
+      "link": "/certificados/Certificado totvs-advpl-fundamental.pdf",
+      "linkValidacao": "",
+      "observacoes": "Aprendendo os fundamentos de AdvPL, uma linguagem de programação para desenvolvimento de sistemas ERP."
+    },
+    {
+      "id": "configurador-advpl",
+      "titulo": "Configurador de AdvPL",
+      "instituicao": "TOTVS",
+      "periodo": "2024",
+      "cargaHoraria": "20h",
+      "link": "/certificados/Certificado totvs-configurador.pdf",
+      "linkValidacao": "",
+      "observacoes": "Aprendendo a configurar o sistema ERP TOTVS, utilizando a linguagem AdvPL."
+    },
+    {
+      "id": "inteligencia-artificial-rafael-melo",
+      "titulo": "Introdução à Inteligência Artificial",
+      "instituicao": "IF de Mato Grosso do Sul",
+      "periodo": "2024",
+      "cargaHoraria": "30h",
+      "link": "/certificados/Certificado Inteligência Artificial - Rafael Melo.pdf",
+      "linkValidacao": "https://cursoslivres.ifms.edu.br/mod/simplecertificate/verify.php?code=62d9d8cc-fc58-4424-9f92-99650a010057",
+      "observacoes": "Curso de introdução à Inteligência Artificial, com foco em IA genérica."
+    },
+    {
+      "id": "prompts-inteligentes",
+      "titulo": "Bootcamp Microsoft Al for Tech - Criando Prompts Inteligentes",
+      "instituicao": "DIO",
+      "periodo": "2025",
+      "cargaHoraria": "30h",
+      "link": "/certificados/certificados prompts inteligentes.pdf",
+      "linkValidacao": "",
+      "observacoes": "Aprendendo a criar prompts inteligentes para IA."
+    },
+    {
+      "id": "iniciacao-pesquisa",
       "titulo": "Iniciação à Pesquisa SEI_UFCAT - 0132510",
       "instituicao": "Universidade Federal de Catalão",
       "periodo": "2024",
       "cargaHoraria": "20h - semanal",
       "link": "/certificados/Certificado de Iniciação à Pesquisa SEI_UFCAT - 0132510.pdf",
-      "linkValidacao": "https://cursos.alura.com.br/certificate/00000000-0000-0000-0000-000000000000",
+      "linkValidacao": "",
       "observacoes": "Pesquisa realizada no Instituto de Computação da Universidade Federal de Catalão sobre um projeto interno da instituição."
     }
   ]

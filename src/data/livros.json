@@ -2,23 +2,93 @@
   "_schema": "titulo, autor, categoria, status (lendo/ler/li), nota (1-5), observacoes, link",
   "livros": [
     {
-      "id": "exemplo1",
-      "titulo": "Deep Learning com Python",
-      "autor": "François Chollet",
-      "categoria": "técnico",
+      "id": "o-poder-da-autorresponsabilidade",
+      "titulo": "O poder da autorresponsabilidade",
+      "autor": "Paulo Vieira",
+      "categoria": "desenvolvimento pessoal",
       "status": "li",
-      "nota": 5,
-      "observacoes": "Fundamental para entender redes neurais.",
+      "nota": 3,
+      "observacoes": "Livro fundamental para entender a importância da autorresponsabilidade e como ela pode ajudar a melhorar a vida pessoal e profissional.",
       "link": null
     },
     {
-      "id": "exemplo2",
+      "id": "como-fazer-sua-proxima-carreira-decolar",
+      "titulo": "Como fazer sua (próxima) carreira decolar",
+      "autor": "Dale Carnegie",
+      "categoria": "desenvolvimento pessoal",
+      "status": "li",
+      "nota": 5,
+      "observacoes": "Livro fundamental para entender como fazer sua (próxima) carreira decolar. Ensinando a criar uma carreira de sucesso",
+      "link": null
+    },
+    {
+      "id": "clean-code",
       "titulo": "Clean Code",
       "autor": "Robert C. Martin",
-      "categoria": "técnico",
+      "categoria": "Programação",
       "status": "lendo",
-      "nota": null,
-      "observacoes": null,
+      "nota": 4,
+      "observacoes": "Livro fundamental para entender boas práticas de programação. Ensinando a criar um código limpo e eficiente.",
+      "link": null
+    },
+    {
+      "id": "mais-esperto-que-o-diabo",
+      "titulo": "Mais esperto que o diabo",
+      "autor": "Napoleon Hill",
+      "categoria": "desenvolvimento pessoal",
+      "status": "lendo",
+      "nota": 5,
+      "observacoes": "Livro fundamental para entender como ser mais esperto que o diabo. Ensinando a dar a volta e sair de mals hábitos, mentalidades e atitudes.",
+      "link": null
+    },
+    {
+      "id": "fluencia-em-dados-e-ia",
+      "titulo": "Fluência em dados e IA",
+      "autor": "Priscila Papazissis",
+      "categoria": "IA",
+      "status": "lendo",
+      "nota": 5,
+      "observacoes": "Livro para o profissional de dados e IA. Ensinando a manejar o conhecimento em dados e IA.",
+      "link": null
+    },
+    {
+      "id": "o-homem-mais-rico-da-babilonia",
+      "titulo": "O homem mais rico da Babilônia",
+      "autor": "George S. Clason",
+      "categoria": "desenvolvimento pessoal",
+      "status": "ler",
+      "nota": 0,
+      "observacoes": "",
+      "link": null
+    },
+    {
+      "id": "as-48-leis-do-poder",
+      "titulo": "As 48 Leis do Poder",
+      "autor": "Robert Greene",
+      "categoria": "desenvolvimento pessoal",
+      "status": "ler",
+      "nota": 0,
+      "observacoes": "",
+      "link": null
+    },
+    {
+      "id": "a-arte-da-seducao",
+      "titulo": "A Arte da Sedução",
+      "autor": "Robert Greene",
+      "categoria": "desenvolvimento pessoal",
+      "status": "ler",
+      "nota": 0,
+      "observacoes": "",
+      "link": null
+    },
+    {
+      "id": "a-arte-da-seducao",
+      "titulo": "Gatilhos Mentais",
+      "autor": "Gustavo Ferreira",
+      "categoria": "vendas",
+      "status": "ler",
+      "nota": 0,
+      "observacoes": "",
       "link": null
     }
   ]

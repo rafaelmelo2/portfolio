@@ -59,7 +59,7 @@ export function ProjectCard({ projeto, onOpenDemo }) {
                   e.stopPropagation()
                   onOpenDemo?.(projeto.demoLocal, projeto.titulo)
                 }}
-                className="inline-flex items-center gap-1.5 min-h-[44px] px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-400 text-sm font-medium hover:bg-emerald-500/30 active:bg-emerald-500/30 transition-colors touch-manipulation"
+                 className="inline-flex items-center gap-1.5 min-h-[44px] px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-400 text-sm font-medium hover:bg-emerald-500/30 active:bg-emerald-500/30 transition-colors touch-manipulation"
               >
                 <Play size={14} />
                 Ver demo

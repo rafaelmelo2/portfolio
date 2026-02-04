@@ -1,5 +1,5 @@
+import { FileText, GraduationCap } from 'lucide-react'
 import { useState } from 'react'
-import { GraduationCap, FileText } from 'lucide-react'
 import { cursos } from '../data'
 import { CertificatePreview } from './CertificatePreview'
 
@@ -81,15 +81,6 @@ function CursoCard({ curso, onPreviewCertificado }) {
                 >
                   Ver certificado →
                 </button>
-                <a
-                  href={linkUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-h-[44px] inline-flex items-center px-3 py-2 text-xs text-slate-500 hover:text-slate-300 transition-colors touch-manipulation rounded-lg"
-                  title="Abrir em nova aba"
-                >
-                  Nova aba
-                </a>
               </>
             )}
             {linkValidacao && (

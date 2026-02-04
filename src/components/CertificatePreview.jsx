@@ -1,5 +1,5 @@
-import { useEffect, useCallback } from 'react'
-import { X, ExternalLink, ShieldCheck } from 'lucide-react'
+import { ExternalLink, ShieldCheck, X } from 'lucide-react'
+import { useCallback, useEffect } from 'react'
 
 const EXTENSOES_IMAGEM = /\.(jpe?g|png|gif|webp|svg)(\?|$)/i
 const EXTENSAO_PDF = /\.pdf(\?|$)/i
