@@ -1,0 +1,29 @@
+{
+  "_schema": "core: { skill, porcentagem }, frameworks: string[], ferramentas: string[]",
+  "core": [
+    { "skill": "Python (Data Science Ecosystem)", "porcentagem": 95 },
+    { "skill": "Computer Vision (OpenCV/YOLO)", "porcentagem": 80 },
+    { "skill": "SQL & Database Design", "porcentagem": 75 },
+    { "skill": "JavaScript/React", "porcentagem": 60 }
+  ],
+  "frameworks": [
+    "PyTorch",
+    "TensorFlow",
+    "Keras",
+    "Scikit-learn",
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "FastAPI",
+    "Flask"
+  ],
+  "ferramentas": [
+    "Git/GitHub",
+    "Docker",
+    "Linux/Bash",
+    "Jira",
+    "VS Code",
+    "Colab",
+    "AWS"
+  ]
+}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import {
   Navbar,
   Hero,
@@ -6,10 +7,39 @@ import {
   Experience,
   Projects,
   Skills,
+  Livros,
+  Cursos,
   Testimonials,
   Contact,
   Footer,
+  Blog,
 } from './components'
+
+function HomePage({ scrollTo }) {
+  const location = useLocation()
+
+  useEffect(() => {
+    const hash = location.hash.slice(1)
+    if (hash) {
+      const el = document.getElementById(hash)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [location])
+
+  return (
+    <>
+      <Hero scrollTo={scrollTo} />
+      <About />
+      <Projects />
+      <Experience />
+      <Skills />
+      <Cursos />
+      <Livros />
+      <Testimonials />
+      <Contact />
+    </>
+  )
+}
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,6 +55,7 @@ function App() {
 
   const scrollTo = (id) => {
     setIsMenuOpen(false)
+    if (id === 'blog') return // Navbar trata rota
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
@@ -37,17 +68,13 @@ function App() {
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
         scrolled={scrolled}
-        scrollTo={scrollTo}
       />
 
       <main>
-        <Hero scrollTo={scrollTo} />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Testimonials />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<HomePage scrollTo={scrollTo} />} />
+          <Route path="/blog" element={<Blog />} />
+        </Routes>
       </main>
 
       <Footer />

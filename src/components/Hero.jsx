@@ -6,7 +6,7 @@ export function Hero({ scrollTo }) {
       <div className="absolute top-20 right-0 w-64 h-64 md:w-96 md:h-96 bg-emerald-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
       <div className="absolute bottom-20 left-0 w-48 h-48 md:w-72 md:h-72 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
 
-      <div className="container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="container mx-auto grid lg:grid-cols-2 gap-4 lg:gap-6 items-center">
         <div className="order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] md:text-xs font-semibold mb-6 border border-emerald-500/20">
             <span className="relative flex h-2 w-2">
@@ -16,14 +16,15 @@ export function Hero({ scrollTo }) {
             Disponível para contratação Full-time
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-100 mb-6 leading-tight">
-            Engenharia de <br />
+          Onde código encontra <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
-              Inteligência Artificial
+              Inteligência
             </span>
           </h1>
           <p className="text-base md:text-lg text-slate-400 mb-8 max-w-lg leading-relaxed">
-            &quot;Transformando dados brutos em inteligência acionável.&quot; <br />
-            Estagiário na HPE Automotores e futuro Cientista da Computação, focado em Visão Computacional e Soluções Industriais.
+            Transformando dados brutos em inteligência acionável. <br />
+            Estagiário na HPE Automotores e futuro Cientista da Computação, focado em dados, IA e automação.
+            <br />Técnico e criativo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <button onClick={() => scrollTo('projetos')} className="bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold py-3 px-8 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 w-full sm:w-auto">
@@ -35,18 +36,18 @@ export function Hero({ scrollTo }) {
           </div>
         </div>
 
-        <div className="order-2 flex justify-center lg:justify-end relative mt-8 lg:mt-0">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+        <div className="order-2 flex justify-center lg:justify-end relative mt-6 lg:mt-0">
+          <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[30rem] lg:h-[30rem] xl:w-[32rem] xl:h-[32rem]">
             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-blue-500 rounded-[2rem] rotate-6 opacity-30 blur-lg"></div>
             <div className="absolute inset-0 bg-slate-800 rounded-[2rem] border border-slate-700 shadow-2xl overflow-hidden group">
               <img
-                src="/api/placeholder/400/400"
+                src="./imgs/eu5.jpg"
                 alt="Foto de Perfil Profissional"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100"
               />
               <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent">
-                <p className="text-white font-bold text-lg">[Seu Nome]</p>
-                <p className="text-emerald-400 text-sm">AI Engineer Intern</p>
+                <p className="text-white font-bold text-lg">Rafael Melo</p>
+                <p className="text-emerald-400 text-sm">AI Intern</p>
               </div>
             </div>
           </div>

@@ -1,0 +1,13 @@
+{
+  "_schema": "autor, cargo, empresa, texto, iniciais (para avatar)",
+  "depoimentos": [
+    {
+      "id": "1",
+      "autor": "Gestor / Tech Lead",
+      "cargo": null, 
+      "empresa": "HPE Automotores",
+      "texto": "O [Seu Nome] demonstrou uma curva de aprendizado excepcional durante o estágio. Sua capacidade de pegar um conceito teórico de IA e aplicá-lo em um problema real da linha de montagem foi impressionante. Tem um futuro brilhante como engenheiro.",
+      "iniciais": "G"
+    }
+  ]
+}

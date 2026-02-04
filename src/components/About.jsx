@@ -1,4 +1,3 @@
-import { Terminal } from 'lucide-react'
 
 export function About() {
   return (
@@ -9,34 +8,43 @@ export function About() {
             <div className="absolute -inset-2 md:-inset-4 bg-slate-800 rounded-xl rotate-3 opacity-50"></div>
             <div className="relative bg-slate-800 rounded-xl overflow-hidden border border-slate-700 h-64 md:h-[400px]">
               <div className="flex flex-col items-center justify-center h-full text-slate-500 bg-slate-900 px-4">
-                <Terminal size={48} className="mb-4 opacity-50" />
-                <p className="text-sm text-center">[Foto sua no trabalho/faculdade]</p>
+                <img src="/imgs/eu6.png" alt="Fael" className="w-full h-full object-cover" />
+                <p className="text-sm text-center"></p>
               </div>
             </div>
           </div>
 
           <div className="order-1 lg:order-2">
             <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
-              Sobre Mim <div className="h-px bg-emerald-500 flex-grow max-w-[50px] md:max-w-[100px]"></div>
+              Sobre Mim 
+              <div className="h-px bg-emerald-500 flex-grow max-w-[50px] md:max-w-[100px]"></div>
             </h2>
+
             <p className="text-slate-400 leading-relaxed mb-6 text-sm md:text-base">
-              Combinando o rigor acadêmico da Ciência da Computação com a velocidade do ambiente industrial automotivo.
+              Sou estudante de Ciência da Computação com forte foco em transformar ideias em soluções digitais funcionais, escaláveis e orientadas a resultados.
             </p>
+
             <p className="text-slate-400 leading-relaxed mb-8 text-sm md:text-base">
-              Atualmente, atuo como estagiário na HPE Automotores, onde migrei da teoria para a prática, implementando soluções de Visão Computacional que impactam diretamente a linha de produção. Minha filosofia é que a IA deve ser uma ferramenta de eficiência, não apenas um conceito abstrato.
+              Atualmente, atuo como estagiário na HPE Automotores, aplicando inteligência artificial, automação e análise de dados para otimizar processos industriais. Paralelamente, desenvolvo projetos próprios envolvendo SaaS, bots, sistemas web e infraestrutura em nuvem, sempre buscando unir tecnologia, eficiência e impacto real.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-slate-800/50 p-4 rounded-lg border-l-4 border-emerald-500">
                 <h4 className="font-bold text-slate-200 text-sm md:text-base">Foco Atual</h4>
-                <p className="text-xs md:text-sm text-slate-400">Computer Vision & Edge AI</p>
+                <p className="text-xs md:text-sm text-slate-400">
+                  IA Aplicada, Automação & Full Stack
+                </p>
               </div>
+
               <div className="bg-slate-800/50 p-4 rounded-lg border-l-4 border-blue-500">
                 <h4 className="font-bold text-slate-200 text-sm md:text-base">Objetivo</h4>
-                <p className="text-xs md:text-sm text-slate-400">Efetivação como Jr. Engineer</p>
+                <p className="text-xs md:text-sm text-slate-400">
+                  Atuar como Engenheiro de Software / IA
+                </p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

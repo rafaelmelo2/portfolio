@@ -1,0 +1,38 @@
+{
+  "_schema": "tipo (email, linkedin, github, etc), label, url, icone (opcional)",
+  "contatos": [
+    {
+      "id": "email",
+      "tipo": "email",
+      "label": "E-mail",
+      "url": "mailto:seu@email.com",
+      "icone": "Mail"
+    },
+    {
+      "id": "linkedin",
+      "tipo": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/rafaelmelo2234/",
+      "icone": "Linkedin"
+    },
+    {
+      "id": "github",
+      "tipo": "github",
+      "label": "GitHub",
+      "url": "https://github.com/rafaelmelo2",
+      "icone": "Github"
+    },
+    {
+      "id": "site",
+      "tipo": "site",
+      "label": "Site",
+      "url": "https://rafaelmelo.netlify.app/",
+      "icone": "Globe"
+    }
+  ],
+  "formulario": {
+    "titulo": "Pronto para o Próximo Nível",
+    "subtitulo": "Combinando energia, técnica e visão de negócio. Estou disponível para entrevistas e desafios técnicos.",
+    "enabled": true
+  }
+}

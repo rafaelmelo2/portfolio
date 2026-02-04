@@ -1,0 +1,45 @@
+{
+  "_schema": "titulo, instituicao, periodo, cargaHoraria, link (arquivo local ou URL do certificado), linkValidacao (URL da plataforma para validar o certificado), observacoes",
+  "cursos": [
+    {
+      "id": "exemplo-react",
+      "titulo": "EXEMPLO",
+      "instituicao": "Alura",
+      "periodo": "2024",
+      "cargaHoraria": "26h",
+      "link": "",
+      "linkValidacao": "https://cursos.alura.com.br/certificate/00000000-0000-0000-0000-000000000000",
+      "observacoes": "Componentes, hooks e boas práticas. Substitua o PDF em public/certificados/ e o linkValidacao pelo URL real do seu certificado."
+    },
+    {
+      "id": "comunicacao-empresarial",
+      "titulo": "Comunicação empresarial",
+      "instituicao": "Fundação Bradesco",
+      "periodo": "2024",
+      "cargaHoraria": "12h",
+      "link": "/certificados/Certificado Comunicação empresarial.pdf",
+      "linkValidacao": "https://www.ev.org.br/validar-certificado",
+      "observacoes": "Aprimoramento pessoal de comunicação profissional e habilidades interpessoais."
+    },
+    {
+      "id": "crie-site-simples",
+      "titulo": "Crie um site simples usando HTML, CSS e JavaScript",
+      "instituicao": "Fundação Bradesco",
+      "periodo": "2024",
+      "cargaHoraria": "26h",
+      "link": "/certificados/Certificado Crie um site simples usando HTML, CSS e JavaScript.pdf",
+      "linkValidacao": "https://www.ev.org.br/validar-certificado",
+      "observacoes": "Aprendendo a criar um site simples usando HTML, CSS e JavaScript."
+    },
+    {
+      "id": "iniciação-pesquisa",
+      "titulo": "Iniciação à Pesquisa SEI_UFCAT - 0132510",
+      "instituicao": "Universidade Federal de Catalão",
+      "periodo": "2024",
+      "cargaHoraria": "20h - semanal",
+      "link": "/certificados/Certificado de Iniciação à Pesquisa SEI_UFCAT - 0132510.pdf",
+      "linkValidacao": "https://cursos.alura.com.br/certificate/00000000-0000-0000-0000-000000000000",
+      "observacoes": "Pesquisa realizada no Instituto de Computação da Universidade Federal de Catalão sobre um projeto interno da instituição."
+    }
+  ]
+}

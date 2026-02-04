@@ -1,0 +1,204 @@
+{
+  "_schema": "titulo, categoria, descricao, observacoes, github, demo, valorAprendizado (1-5), tecnologias, imagem",
+  "projetos": [
+    {
+      "id": "cutover-dashboard",
+      "titulo": "Dashboard de Cutover",
+      "categoria": "web",
+      "descricao": "Dashboard de acompanhamento de migração com métricas, gráficos e status em tempo real. Realizado um ETL de um arquivo excel e exibido em um dashboard interativo.",
+      "observacoes": "Demo interativa disponível no site.",
+      "github": "",
+      "demo": null,
+      "demoLocal": "/demos/cutover_dashboard_anonimo.html",
+      "valorAprendizado": 5,
+      "tecnologias": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Plotly",
+        "Python",
+        "Polars"
+      ],
+      "imagem": "cutover-dashboard.png"
+    },
+    {
+      "id": "librechat",
+      "titulo": "Auxílio de implementação do LibreChat",
+      "categoria": "ia",
+      "descricao": "Documentação, relatórios e auxílio de implementação do LibreChat, um centralizador de IA's open source.",
+      "observacoes": "Projeto corporativo — detalhes de negócio e infraestrutura omitidos por confidencialidade.",
+      "github": "https://github.com/danny-avila/LibreChat",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python",
+        "Docker",
+        "Git",
+        "Typescript",
+        "Javascript"
+      ],
+      "imagem": "librechat.png"
+    },
+    {
+      "id": "ponto-do-lanche-v1",
+      "titulo": "Ponto do Lanche V1",
+      "categoria": "fullstack",
+      "descricao": "Sistema ERP para gerenciamento de pedidos e controle de estoque local.",
+      "observacoes": "Projeto real em uso.",
+      "github": "",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": [
+        "Java"
+      ],
+      "imagem": "ponto-do-lanche.png"
+    },
+    {
+      "id": "ponto-do-lanche-v2",
+      "titulo": "Ponto do Lanche V2",
+      "categoria": "web",
+      "descricao": "Sistema web para gerenciamento de pedidos e controle de estoque, em nuvem.",
+      "observacoes": "Projeto real em finalização de desenvolvimento.",
+      "github": "https://github.com/rafaelmelo2/Ponto-do-lanche-gemini",
+      "demo": null,
+      "demoLocal": "https://pontodolanche.simetech.com.br/",
+      "valorAprendizado": 5,
+      "tecnologias": [
+        "Node.js",
+        "React",
+        "Tailwind CSS",
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "PostgreSQL"
+      ],
+      "imagem": "ponto-do-lanche.png"
+    },
+    {
+      "id": "ponto-do-lanche-atendimento",
+      "titulo": "Ponto do Lanche V2",
+      "categoria": "web",
+      "descricao": "Sistema N8N para gerenciamento de atendimento de pedidos, utilizando IA para conversa humanizada.",
+      "observacoes": "Projeto real em uso - integração com o sistema Ponto do Lanche V2.",
+      "github": "",
+      "demo": null,
+      "valorAprendizado": 5,
+      "tecnologias": [
+        "Java"
+      ],
+      "imagem": "n8n.png"
+    },
+    {
+      "id": "assistente-virtual",
+      "titulo": "Assistente Virtual 2020",
+      "categoria": "ia",
+      "descricao": "Assistente virtual que faz coisas no computador, usando apenas voz.",
+      "observacoes": "Abre youtube, pesquisa no google, toca musica, aumenta e diminui volume, etc.",
+      "github": "https://github.com/rafaelmelo2/Fael_assistente_virtual_2020",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": [
+        "Python",
+        "ChatterBot"
+      ],
+      "imagem": "assistente-virtual.png"
+    },
+    {
+      "id": "api-importacao-estoque-veiculos",
+      "titulo": "API de Importação de Estoque de Veículos",
+      "categoria": "fullstack",
+      "descricao": "API REST para importação em lote de estoque de veículos, com validação de payload, autenticação OAuth2 (client credentials) e persistência em banco Oracle. Inclui documentação da API, fluxo de criação de clientes OAuth e exemplos de integração.",
+      "observacoes": "Projeto corporativo — detalhes de negócio e infraestrutura omitidos por confidencialidade.",
+      "github": "",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": [
+        "PHP",
+        "Laravel",
+        "Laravel Passport",
+        "Oracle",
+        "SQL",
+        "OAuth2"
+      ],
+      "imagem": "api-importacao-estoque-veiculos.png"
+    },
+    {
+      "id": "tradebot",
+      "titulo": "TradeBot Cripto",
+      "categoria": "python",
+      "descricao": "Bot de trading automatizado para criptomoedas.",
+      "observacoes": "Descontinuado, utilizava API da Binance.",
+      "github": "https://github.com/rafaelmelo2/tradebot-cripto",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": [
+        "Python",
+        "Binance API"
+      ],
+      "imagem": "tradebot.png"
+    },
+    {
+      "id": "bank3f",
+      "titulo": "Bank3F",
+      "categoria": "fullstack",
+      "descricao": "Projeto realizado para trabalho final da matéria de Programação orientada a objetos.",
+      "observacoes": null,
+      "github": "https://github.com/rafaelmelo2/Bank3F",
+      "demo": null,
+      "valorAprendizado": 3,
+      "tecnologias": [
+        "HTML",
+        "JavaScript"
+      ],
+      "imagem": "bank3F.png"
+    },
+    {
+      "id": "extensao-faculdade",
+      "titulo": "Extensão de Gerenciador de Horários",
+      "categoria": "extensao",
+      "descricao": "Extensão para gerenciamento de horários acadêmicos.",
+      "observacoes": null,
+      "github": "https://github.com/rafaelmelo2/gerenciador-de-horarios-faculdade-extensao",
+      "demo": null,
+      "valorAprendizado": 3,
+      "tecnologias": [
+        "HTML",
+        "JavaScript",
+        "CSS"
+      ],
+      "imagem": "extensao-faculdade.png"
+    },
+    {
+      "id": "inspire-board",
+      "titulo": "Inspire Board",
+      "categoria": "web",
+      "descricao": "Sistema web para criação de vision boards, com busca de inspiração, compartilhamento de ideias e opções de salvar ideias favoritas.",
+      "observacoes": "Projeto finalizado e em produção.",
+      "github": "https://inspireboard.netlify.app/",
+      "demo": null,
+      "valorAprendizado": 5,
+      "tecnologias": [
+        "Java"
+      ],
+      "imagem": "n8n.png"
+    },
+    {
+      "id": "battle-royale-fivem",
+      "titulo": "Battle Royale FiveM",
+      "categoria": "scripts",
+      "descricao": "Script para servidor FiveM, com sistema de balas, mortes, kills, etc.",
+      "observacoes": null,
+      "github": "https://github.com/rafaelmelo2/battle-royale-fivem",
+      "demo": "null",
+      "valorAprendizado": 3,
+      "tecnologias": [
+        "Lua"
+      ],
+      "imagem": "battle-royale.png"
+    }
+  ]
+}

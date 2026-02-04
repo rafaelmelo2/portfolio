@@ -1,0 +1,85 @@
+{
+  "_schema": "cargo, empresa, periodo, cor (tailwind bg-*), destaques (array de strings), foto",
+  "experiencias": [
+    {
+      "id": "hpe-ai",
+      "cargo": "Estagiário de Inteligência Artificial",
+      "empresa": "HPE Automotores do Brasil Ltda.",
+      "periodo": "jun de 2025 – o momento",
+      "cor": "bg-emerald-500",
+      "destaques": [
+        "Otimização de QA utilizando YOLOv8 para detecção de falhas.",
+        "Automação de scripts ETL reduzindo em 40% o tempo de preparo de dados.",
+        "Participação ativa em Daily Scrums e Code Reviews."
+      ]
+    },
+    {
+      "id": "hpe-dev",
+      "cargo": "Estagiário de desenvolvimento",
+      "empresa": "HPE Automotores do Brasil Ltda.",
+      "periodo": "set de 2024 – jun de 2025",
+      "cor": "bg-lime-500",
+      "destaques": [
+        "Auxiliar no atendimento de service desk dos sistemas desenvolvidos internamente pela HPE;",
+        "Apoiar na análise de sistemas, propondo novos métodos de realização do trabalho ou sua automação;",
+        "Participar do levantamento de dados e da definição de métodos e técnicas necessários para implantação de sistemas e/ou alteração dos já existentes;",
+        "Contribuir na elaboração de manuais dos sistemas de produtos e prospecção de dados;",
+        "Pesquisar e avaliar sistemas disponíveis no mercado e suas vantagens para a companhia;",
+        "Contribuir na elaboração de estudos sobre a criação ou alteração de metodologias e procedimentos necessários ao desenvolvimento de sistemas."
+      ]
+    },
+    {
+      "id": "plantonista-analista-ti",
+      "cargo": "Plantonista Analista de TI",
+      "empresa": "Hospital Nasr Faiad",
+      "periodo": "abr de 2022 – out de 2025",
+      "cor": "bg-orange-500",
+      "destaques": [
+        "Plantões durante final de semana 07PM - 07AM.",
+        "Resolução de problemas emergenciais de hardware e software em ambiente hospitalar."
+      ]
+    },
+    {
+      "id": "estagiario-ti",
+      "cargo": "Estagiário de TI",
+      "empresa": "Serra do Facão Energia (SEFAC)",
+      "periodo": "jun de 2024 – set de 2024",
+      "cor": "bg-teal-500",
+      "destaques": [
+        "Apoio na utilização e solução de problemas de hardware e softwares;",
+        "Abertura e acompanhamento de chamados junto aos prestadores de serviços de TI;",
+        "Apoio no desenvolvimento e manutenção das aplicações;",
+        "Suporte aos usuários de TI da empresa;",
+        "Participar de atividades e reuniões da área de TI;",
+        "Zelar pela organização e limpeza dos equipamentos;",
+        "Apoiar no inventário de ativos de TI, mantendo-o atualizado;",
+        "Preenchimento de relatórios e planilhas da área de TI;",
+        "Propor melhorias para a empresa que possam ser suportadas pela área de TI."
+      ]
+    },
+    {
+      "id": "desenvolvedor-front-end",
+      "cargo": "Desenvolvedor front-end",
+      "empresa": "Universidade Federal de Catalão (UFCAT)",
+      "periodo": "mai de 2024 – ago de 2024",
+      "cor": "bg-blue-500",
+      "destaques": [
+        "Desenvolvedor front-end de um projeto interno da Universidade Federal de Catalão (UFCAT), cujo objetivo é produzir um sistema web de uso privado da universidade."
+      ]
+    },
+    {
+      "id": "analista-ti",
+      "cargo": "Analista de TI",
+      "empresa": "Hospital Nasr Faiad",
+      "periodo": "jun de 2021 – dez de 2021",
+      "cor": "bg-purple-500",
+      "destaques": [
+        "Elaboração e análise de indicadores para manutenção preventiva e corretiva, garantindo a continuidade operacional e redução de falhas;",
+        "Participação na implementação de metodologias como 5S, fluxogramas e histogramas para otimizar processos e melhorar a eficiência organizacional;",
+        "Criação de relatórios visuais e planilhas no Excel para monitoramento de KPIs em todos os setores da empresa, promovendo tomadas de decisão mais assertivas;",
+        "Implementação de hardware e software, atualização de sistemas operacionais, realização de backups de usuários e servidores, além de otimizações de desempenho em dispositivos e aplicativos.",
+        "Administração de sistemas de biometria, controle de logins e senhas, assegurando a segurança e conformidade no acesso a sistemas corporativos."
+      ]
+    }
+  ]
+}

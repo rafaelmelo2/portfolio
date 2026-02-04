@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Mobile: evita scroll horizontal e melhora toque */
+@layer base {
+  html {
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Rolagem suave e discreta na seção Livros */
+.livros-rolagem {
+  scrollbar-width: thin;
+  scrollbar-color: #475569 transparent;
+}
+.livros-rolagem::-webkit-scrollbar {
+  width: 6px;
+}
+.livros-rolagem::-webkit-scrollbar-track {
+  background: transparent;
+}
+.livros-rolagem::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  border-radius: 3px;
+}
+.livros-rolagem::-webkit-scrollbar-thumb:hover {
+  background-color: #64748b;
+}
