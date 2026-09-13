@@ -1,0 +1,13 @@
+{
+  "_schema": "nome, cargoAtual, empresaAtual, local, status (selo no topo do site; vazio esconde), formacao, foco, foto (hero), fotoTrabalho (sobre), cv (caminho do PDF em public/, ex.: /cv-rafael-melo.pdf — vazio esconde o botão)",
+  "nome": "Rafael Melo",
+  "cargoAtual": "Analista de Inovação",
+  "empresaAtual": "HPE Automotores",
+  "local": "Catalão – GO",
+  "status": "Analista de Inovação na HPE Automotores",
+  "formacao": "Bacharel em Ciência da Computação",
+  "foco": "IA aplicada, automação e full stack",
+  "foto": "/imgs/eu5.jpg",
+  "fotoTrabalho": "/imgs/eu6.png",
+  "cv": ""
+}

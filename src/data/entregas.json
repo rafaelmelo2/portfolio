@@ -1,0 +1,29 @@
+{
+  "_schema": "id (ia | automacao | dados | web — define o ícone), titulo, descricao, prova (tecnologias/projetos que comprovam)",
+  "entregas": [
+    {
+      "id": "ia",
+      "titulo": "IA aplicada ao negócio",
+      "descricao": "Plataforma de IA corporativa com LLM rodando on-premise, sistemas conectados a modelos de linguagem e agentes, como o LibreChat na HPE Automotores e o Botterage.",
+      "prova": ["LibreChat", "vLLM", "RAG", "Agentes com LLM"]
+    },
+    {
+      "id": "automacao",
+      "titulo": "Automação de processos",
+      "descricao": "Fluxos que tiram trabalho repetitivo do time: bots de WhatsApp com IA e relatórios que chegam sozinhos para a operação da fábrica.",
+      "prova": ["n8n", "Bots com IA", "Python"]
+    },
+    {
+      "id": "dados",
+      "titulo": "Dados que viram decisão",
+      "descricao": "Lakehouse de dados, ETL e dashboards para acompanhar KPIs, como o Dashboard de Cutover, que transforma planilhas em métricas interativas.",
+      "prova": ["Python", "Polars", "DuckDB", "Plotly"]
+    },
+    {
+      "id": "web",
+      "titulo": "Sistemas web e APIs",
+      "descricao": "Do front ao banco: SaaS com pagamentos via Mercado Pago, sistema de pedidos em nuvem e APIs REST com autenticação OAuth2.",
+      "prova": ["React", "FastAPI", "Node.js", "PostgreSQL", "Mercado Pago"]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "_schema": "pergunta, resposta",
+  "perguntas": [
+    {
+      "pergunta": "Posso falar com você sobre um projeto ou uma oportunidade?",
+      "resposta": "Pode. Hoje sou Analista de Inovação na HPE Automotores (Mitsubishi) e, em paralelo, desenvolvo projetos com parceiros, como a NexArena e o DuoCash. Para conversar sobre um projeto, uma parceria ou uma oportunidade, o caminho mais rápido é o e-mail ou o LinkedIn, no fim desta página."
+    },
+    {
+      "pergunta": "Qual é o seu foco hoje?",
+      "resposta": "IA aplicada, automação e desenvolvimento full stack. Na HPE Automotores trabalho com a plataforma de IA da empresa, o lakehouse de dados e as automações que geram dashboards e relatórios para a fábrica."
+    },
+    {
+      "pergunta": "Você já usou IA em ambiente corporativo?",
+      "resposta": "Sim. Na HPE Automotores trabalho com o LibreChat como central de IA da empresa, com um modelo open-weight rodando on-premise via vLLM, e construí um painel para acompanhar uso e custo por área. Por confidencialidade, detalhes internos ficam de fora do site."
+    },
+    {
+      "pergunta": "Com quais tecnologias você trabalha?",
+      "resposta": "No dia a dia uso Python, TypeScript e SQL, com FastAPI, React, Node.js/Bun, Polars, DuckDB e n8n. Em IA, LLMs locais e on-premise (Ollama, vLLM) e deep learning com TensorFlow/Keras. Em infraestrutura, Docker, Linux e PostgreSQL. A lista completa está na seção Skills."
+    },
+    {
+      "pergunta": "Posso ver algum projeto funcionando?",
+      "resposta": "Pode. O Dashboard de Cutover tem uma demo interativa aqui mesmo no site e o Ponto do Lanche V2 está publicado online. O Botterage e o TCC têm código aberto no GitHub."
+    },
+    {
+      "pergunta": "Os certificados são verificáveis?",
+      "resposta": "Todos os certificados abrem direto no site em PDF. Os emitidos por plataformas que oferecem validação (Fundação Bradesco, Udemy e IFMS) têm um link para conferir a autenticidade."
+    },
+    {
+      "pergunta": "Você tem experiência fora do desenvolvimento?",
+      "resposta": "Tenho. Antes de focar em desenvolvimento, trabalhei com suporte e análise de TI em hospital e no setor de energia: plantões resolvendo problemas críticos de hardware e software, indicadores de manutenção e relatórios de KPIs."
+    },
+    {
+      "pergunta": "Onde você mora?",
+      "resposta": "Em Catalão – GO. Para falar sobre formato de trabalho (presencial, híbrido ou remoto), me chame por e-mail."
+    }
+  ]
+}

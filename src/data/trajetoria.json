@@ -2,10 +2,26 @@
   "_schema": "cargo, empresa, periodo, cor (tailwind bg-*), destaques (array de strings), foto",
   "experiencias": [
     {
+      "id": "hpe-analista-ia",
+      "cargo": "Analista de Inovação",
+      "empresa": "HPE Automotores do Brasil Ltda.",
+      "periodo": "mar de 2026 – o momento",
+      "cor": "bg-emerald-500",
+      "destaques": [
+        "Liderança técnica de frente de desenvolvimento de arquitetura de dados (Lakehouse) com equipe parceira.",
+        "Gestão e evolução de plataforma interna de IA generativa, com atenção à segurança da informação e conformidade com LGPD.",
+        "Administração e acompanhamento de ambientes e serviços de IA, incluindo controle de acessos, disponibilidade e monitoramento operacional.",
+        "Desenvolvimento de APIs e integrações entre sistemas corporativos, apoiando a eficiência e a digitalização de processos internos.",
+        "Construção e monitoramento de dashboards, rotinas automatizadas e reports, com agendamentos e envio automatizado de informações.",
+        "Condução de estudos e implantação de novas soluções de inovação tecnológica, incluindo estruturação de fluxos e agentes internos.",
+        "Referência técnica em projetos da área, orientando e criando iniciativas de P&D."
+      ]
+    },
+    {
       "id": "hpe-ai",
       "cargo": "Estagiário de Inteligência Artificial",
       "empresa": "HPE Automotores do Brasil Ltda.",
-      "periodo": "jun de 2025 – o momento",
+      "periodo": "jun de 2025 – mar de 2026",
       "cor": "bg-emerald-500",
       "destaques": [
         "Criação de prompts inteligentes para IA.",
@@ -25,10 +41,10 @@
       "destaques": [
         "Auxiliar no atendimento de service desk dos sistemas desenvolvidos internamente pela HPE;",
         "Apoiar na análise de sistemas, propondo novos métodos de realização do trabalho ou sua automação;",
-        "Participar do levantamento de dados e da definição de métodos e técnicas necessários para implantação de sistemas e/ou alteração dos já existentes;",
-        "Contribuir na elaboração de manuais dos sistemas de produtos e prospecção de dados;",
-        "Pesquisar e avaliar sistemas disponíveis no mercado e suas vantagens para a companhia;",
-        "Contribuir na elaboração de estudos sobre a criação ou alteração de metodologias e procedimentos necessários ao desenvolvimento de sistemas."
+        "Participar do levantamento de dados e da definição de métodos e recursos necessários para implantação de sistemas e/ou alteração dos já existentes;",
+        "Contribuir na elaboração de manuais dos sistemas ou projetos desenvolvidos;",
+        "Pesquisar e avaliar sistemas disponíveis no mercado e sua aplicabilidade para a companhia;",
+        "Contribuir na elaboração de estudos sobre a criação e/ou alteração de metodologias e procedimentos necessários ao desenvolvimento de sistemas."
       ]
     },
     {

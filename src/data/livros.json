@@ -56,9 +56,9 @@
       "titulo": "O homem mais rico da Babilônia",
       "autor": "George S. Clason",
       "categoria": "desenvolvimento pessoal",
-      "status": "ler",
+      "status": "lendo",
       "nota": 0,
-      "observacoes": "",
+      "observacoes": "Na metade da leitura.",
       "link": null
     },
     {
@@ -82,11 +82,11 @@
       "link": null
     },
     {
-      "id": "a-arte-da-seducao",
+      "id": "gatilhos-mentais",
       "titulo": "Gatilhos Mentais",
       "autor": "Gustavo Ferreira",
       "categoria": "vendas",
-      "status": "ler",
+      "status": "li",
       "nota": 0,
       "observacoes": "",
       "link": null

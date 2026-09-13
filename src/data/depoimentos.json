@@ -1,13 +1,25 @@
 {
-  "_schema": "autor, cargo, empresa, texto, iniciais (para avatar)",
+  "_schema": "autor, cargo, empresa, texto, iniciais (para avatar), publicado (true para exibir no site — use só depoimentos reais e autorizados), fonte (link para a recomendação original)",
   "depoimentos": [
     {
-      "id": "1",
-      "autor": "Gestor / Tech Lead",
-      "cargo": null, 
-      "empresa": "HPE Automotores",
-      "texto": "O [Seu Nome] demonstrou uma curva de aprendizado excepcional durante o estágio. Sua capacidade de pegar um conceito teórico de IA e aplicá-lo em um problema real da linha de montagem foi impressionante. Tem um futuro brilhante como engenheiro.",
-      "iniciais": "G"
+      "id": "thiago-jabur-bittar",
+      "autor": "Thiago Jabur Bittar",
+      "cargo": "Professor Associado",
+      "empresa": "Universidade Federal de Catalão",
+      "texto": "Excelente DEV. Já iniciada sua experiência profissional.",
+      "iniciais": "TB",
+      "publicado": true,
+      "fonte": "https://www.linkedin.com/in/rafaelmelo2234/"
+    },
+    {
+      "id": "henrique-fuga-gomes",
+      "autor": "Henrique Fuga Gomes",
+      "cargo": "Dev Backend Jr",
+      "empresa": "Colega de curso na UFCAT",
+      "texto": "Fiz trabalhos de alta complexidade com ele e foi um sucesso de projeto, boa convivência.",
+      "iniciais": "HG",
+      "publicado": true,
+      "fonte": "https://www.linkedin.com/in/rafaelmelo2234/"
     }
   ]
 }

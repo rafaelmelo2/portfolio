@@ -1,60 +1,116 @@
 {
-  "_schema": "titulo, categoria, descricao, observacoes, github, demo, valorAprendizado (1-5), tecnologias, imagem",
+  "_schema": "titulo, categoria (ia | dados | web | fullstack | desktop | python | extensao | scripts), descricao, observacoes, github, demo, demoLocal, valorAprendizado (1-5; 5 = card largo), tecnologias, imagem (arquivo em imgs/projects/), ajuste (\"contain\" mostra a imagem inteira, bom para gráficos; \"esquerda\" alinha o corte pela esquerda), arquivo (true = vai para a lista de projetos antigos). O primeiro projeto da lista vira o destaque.",
   "projetos": [
     {
       "id": "cutover-dashboard",
       "titulo": "Dashboard de Cutover",
-      "categoria": "web",
+      "categoria": "dados",
       "descricao": "Dashboard de acompanhamento de migração com métricas, gráficos e status em tempo real. Realizado um ETL de um arquivo excel e exibido em um dashboard interativo.",
-      "observacoes": "Demo interativa disponível no site.",
+      "observacoes": "Demo interativa com dados anonimizados.",
       "github": "",
       "demo": null,
       "demoLocal": "/demos/cutover_dashboard_anonimo.html",
       "valorAprendizado": 5,
-      "tecnologias": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Plotly",
-        "Python",
-        "Polars"
-      ],
+      "tecnologias": ["HTML", "CSS", "JavaScript", "Plotly", "Python", "Polars"],
       "imagem": "cutover-dashboard.png"
     },
     {
-      "id": "librechat",
-      "titulo": "Auxílio de implementação do LibreChat",
+      "id": "plataforma-ia-hpe",
+      "titulo": "Plataforma de IA corporativa",
       "categoria": "ia",
-      "descricao": "Documentação, relatórios e auxílio de implementação do LibreChat, um centralizador de IA's open source.",
-      "observacoes": "Projeto corporativo — detalhes de negócio e infraestrutura omitidos por confidencialidade.",
-      "github": "https://github.com/danny-avila/LibreChat",
+      "descricao": "LibreChat como central de IA da empresa, com um LLM open-weight servido on-premise via vLLM (API compatível com OpenAI) e um painel administrativo próprio para acompanhar uso de tokens, custo por área e créditos de cada usuário.",
+      "observacoes": "Projeto corporativo na HPE Automotores — detalhes internos omitidos por confidencialidade.",
+      "github": "",
       "demo": null,
-      "valorAprendizado": 4,
-      "tecnologias": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Python",
-        "Docker",
-        "Git",
-        "Typescript",
-        "Javascript"
-      ],
+      "valorAprendizado": 5,
+      "tecnologias": ["LibreChat", "vLLM", "Docker", "Python", "Flask", "MongoDB", "TypeScript"],
       "imagem": "librechat.png"
     },
     {
-      "id": "ponto-do-lanche-v1",
-      "titulo": "Ponto do Lanche V1",
-      "categoria": "fullstack",
-      "descricao": "Sistema ERP para gerenciamento de pedidos e controle de estoque local.",
-      "observacoes": "Projeto real em uso.",
+      "id": "botterage",
+      "titulo": "Botterage — agente de IA no Minecraft",
+      "categoria": "ia",
+      "descricao": "Bot de Minecraft controlado por um LLM local (Ollama). Movimento e reação são código; a decisão é do modelo. Tem memória de lugares, missões que sobrevivem à morte e ao restart, e aprende com os próprios fracassos.",
+      "observacoes": "Mais de 25 scripts de teste, incluindo casos que rodam sem servidor e sem LLM.",
+      "github": "https://github.com/rafaelmelo2/botterage",
+      "demo": null,
+      "valorAprendizado": 5,
+      "tecnologias": ["TypeScript", "Bun", "Mineflayer", "Ollama", "Docker"],
+      "imagem": ""
+    },
+    {
+      "id": "automacoes-dashboards-hpe",
+      "titulo": "Automações e dashboards industriais",
+      "categoria": "dados",
+      "descricao": "Serviço em Python que coleta dados do banco Oracle e da intranet, gera dashboards interativos (cripples, veículos bloqueados, reparos) e dispara relatórios automáticos por e-mail para as equipes da fábrica.",
+      "observacoes": "Projeto corporativo na HPE Automotores — mais de 100 commits meus.",
       "github": "",
       "demo": null,
       "valorAprendizado": 4,
-      "tecnologias": [
-        "Java"
-      ],
-      "imagem": "ponto-do-lanche.png"
+      "tecnologias": ["Python", "Polars", "Plotly", "FastAPI", "Oracle"],
+      "imagem": ""
+    },
+    {
+      "id": "tcc-b3-cnn-lstm",
+      "titulo": "TCC: predição de ações da B3 com CNN-LSTM",
+      "categoria": "ia",
+      "descricao": "Pipeline reprodutível que prevê a direção do preço intradiário (barras de 15 min) de PETR4, VALE3 e ITUB4. Compara um modelo híbrido CNN-LSTM com ARIMA, Prophet, Naive e Drift, com validação walk-forward, teste de Diebold-Mariano e backtests com custos de transação.",
+      "observacoes": "Trabalho de Conclusão de Curso em Ciência da Computação.",
+      "github": "https://github.com/rafaelmelo2/TCC",
+      "demo": null,
+      "valorAprendizado": 5,
+      "tecnologias": ["Python", "TensorFlow", "Keras", "scikit-learn", "statsmodels", "Prophet"],
+      "imagem": "tcc-diebold-mariano.png",
+      "ajuste": "contain"
+    },
+    {
+      "id": "nexarena",
+      "titulo": "NexArena",
+      "categoria": "web",
+      "descricao": "SaaS de eventos, arenas e torneios: onboarding de organizadores com KYC, venda de ingressos e inscrições pagas por PIX ou cartão via Mercado Pago, com webhook idempotente e estorno.",
+      "observacoes": "Desenvolvido em dupla.",
+      "github": "",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": ["Python", "FastAPI", "React", "TanStack", "PostgreSQL", "Mercado Pago"],
+      "imagem": ""
+    },
+    {
+      "id": "lakehouse-hpe",
+      "titulo": "Lakehouse de dados",
+      "categoria": "dados",
+      "descricao": "Plataforma de dados da empresa: pipelines de ingestão, armazenamento em Delta Lake consultado com DuckDB, API em FastAPI (com servidor MCP para agentes de IA) e front em React.",
+      "observacoes": "Projeto corporativo na HPE Automotores — liderança técnica da frente, com equipe parceira.",
+      "github": "",
+      "demo": null,
+      "valorAprendizado": 5,
+      "tecnologias": ["Python", "FastAPI", "DuckDB", "Delta Lake", "PostgreSQL", "React", "Docker"],
+      "imagem": ""
+    },
+    {
+      "id": "duocash",
+      "titulo": "DuoCash",
+      "categoria": "web",
+      "descricao": "Finanças compartilhadas pelo WhatsApp: gastos, receitas, orçamento e metas, sozinho, a dois ou em grupo. PWA, bot que transforma contatos em leads e regras de divisão de gastos cobertas por testes.",
+      "observacoes": null,
+      "github": "",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": ["TypeScript", "Bun", "Hono", "Drizzle", "PostgreSQL", "React", "PWA"],
+      "imagem": "duocash.png",
+      "ajuste": "esquerda"
+    },
+    {
+      "id": "leitor-reuniao",
+      "titulo": "Leitor de Reunião",
+      "categoria": "ia",
+      "descricao": "Envie a gravação e receba a transcrição em português, feita localmente com faster-whisper, mais os tópicos e as tarefas da reunião resumidos por um LLM. O processamento roda em fila, num worker dedicado.",
+      "observacoes": null,
+      "github": "",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": ["Python", "FastAPI", "faster-whisper", "PostgreSQL", "React", "Docker"],
+      "imagem": ""
     },
     {
       "id": "ponto-do-lanche-v2",
@@ -66,46 +122,20 @@
       "demo": null,
       "demoLocal": "https://pontodolanche.simetech.com.br/",
       "valorAprendizado": 5,
-      "tecnologias": [
-        "Node.js",
-        "React",
-        "Tailwind CSS",
-        "TypeScript",
-        "JavaScript",
-        "HTML",
-        "CSS",
-        "PostgreSQL"
-      ],
+      "tecnologias": ["Node.js", "React", "Tailwind CSS", "TypeScript", "JavaScript", "HTML", "CSS", "PostgreSQL"],
       "imagem": "ponto-do-lanche.png"
     },
     {
       "id": "ponto-do-lanche-atendimento",
-      "titulo": "Ponto do Lanche V2",
-      "categoria": "web",
-      "descricao": "Sistema N8N para gerenciamento de atendimento de pedidos, utilizando IA para conversa humanizada.",
+      "titulo": "Atendimento com IA — Ponto do Lanche",
+      "categoria": "ia",
+      "descricao": "Bot de WhatsApp que atende clientes, monta pedidos a partir do cardápio, calcula entrega e mantém o contexto da conversa, com guardrails nas respostas da IA. Os pedidos caem num painel central, separado por loja.",
       "observacoes": "Projeto real em uso - integração com o sistema Ponto do Lanche V2.",
       "github": "",
       "demo": null,
       "valorAprendizado": 5,
-      "tecnologias": [
-        "Java"
-      ],
+      "tecnologias": ["TypeScript", "Baileys", "DeepSeek", "N8N", "Supabase", "React"],
       "imagem": "n8n.png"
-    },
-    {
-      "id": "assistente-virtual",
-      "titulo": "Assistente Virtual 2020",
-      "categoria": "ia",
-      "descricao": "Assistente virtual que faz coisas no computador, usando apenas voz.",
-      "observacoes": "Abre youtube, pesquisa no google, toca musica, aumenta e diminui volume, etc.",
-      "github": "https://github.com/rafaelmelo2/Fael_assistente_virtual_2020",
-      "demo": null,
-      "valorAprendizado": 4,
-      "tecnologias": [
-        "Python",
-        "ChatterBot"
-      ],
-      "imagem": "assistente-virtual.png"
     },
     {
       "id": "api-importacao-estoque-veiculos",
@@ -116,15 +146,57 @@
       "github": "",
       "demo": null,
       "valorAprendizado": 4,
-      "tecnologias": [
-        "PHP",
-        "Laravel",
-        "Laravel Passport",
-        "Oracle",
-        "SQL",
-        "OAuth2"
-      ],
+      "tecnologias": ["PHP", "Laravel", "Laravel Passport", "Oracle", "SQL", "OAuth2"],
       "imagem": "api-importacao-estoque-veiculos.png"
+    },
+    {
+      "id": "rustlens",
+      "titulo": "RustLens",
+      "categoria": "desktop",
+      "descricao": "Ferramenta de captura de tela para Windows escrita em Rust: aperte PrintScreen, anote a imagem num overlay estilo Lightshot e envie para análise por IA.",
+      "observacoes": null,
+      "github": "",
+      "demo": null,
+      "valorAprendizado": 3,
+      "tecnologias": ["Rust", "Win32 API", "IA"],
+      "imagem": ""
+    },
+    {
+      "id": "horario-ufcat",
+      "titulo": "Horário UFCAT",
+      "categoria": "web",
+      "descricao": "Monta o quadro de horários a partir dos códigos de disciplina da universidade, destaca conflitos e exporta em PDF ou JSON, tudo no navegador. Ganhou também uma extensão de navegador.",
+      "observacoes": null,
+      "github": "https://github.com/rafaelmelo2/gerenciador-de-horarios-faculdade",
+      "demo": null,
+      "valorAprendizado": 3,
+      "tecnologias": ["Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
+      "imagem": "extensao-faculdade.png"
+    },
+    {
+      "id": "inspire-board",
+      "titulo": "Inspire Board",
+      "categoria": "web",
+      "descricao": "Crie quadros visuais (vision boards): busque imagens no Unsplash ou envie as suas, escolha o layout e o tema, adicione frases e exporte em PNG de alta qualidade.",
+      "observacoes": "Projeto finalizado e em produção.",
+      "github": "",
+      "demo": "https://inspireboard.netlify.app/",
+      "valorAprendizado": 3,
+      "tecnologias": ["Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "Unsplash API"],
+      "imagem": ""
+    },
+    {
+      "id": "ponto-do-lanche-v1",
+      "titulo": "Ponto do Lanche V1",
+      "categoria": "fullstack",
+      "descricao": "Sistema ERP para gerenciamento de pedidos e controle de estoque local.",
+      "observacoes": "Projeto real em uso.",
+      "github": "",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": ["Java"],
+      "imagem": "ponto-do-lanche.png",
+      "arquivo": true
     },
     {
       "id": "tradebot",
@@ -135,11 +207,22 @@
       "github": "https://github.com/rafaelmelo2/tradebot-cripto",
       "demo": null,
       "valorAprendizado": 4,
-      "tecnologias": [
-        "Python",
-        "Binance API"
-      ],
-      "imagem": "tradebot.png"
+      "tecnologias": ["Python", "Binance API"],
+      "imagem": "tradebot.png",
+      "arquivo": true
+    },
+    {
+      "id": "assistente-virtual",
+      "titulo": "Assistente Virtual 2020",
+      "categoria": "ia",
+      "descricao": "Assistente virtual que faz coisas no computador, usando apenas voz.",
+      "observacoes": "Abre youtube, pesquisa no google, toca musica, aumenta e diminui volume, etc.",
+      "github": "https://github.com/rafaelmelo2/Fael_assistente_virtual_2020",
+      "demo": null,
+      "valorAprendizado": 4,
+      "tecnologias": ["Python", "ChatterBot"],
+      "imagem": "assistente-virtual.png",
+      "arquivo": true
     },
     {
       "id": "bank3f",
@@ -150,41 +233,9 @@
       "github": "https://github.com/rafaelmelo2/Bank3F",
       "demo": null,
       "valorAprendizado": 3,
-      "tecnologias": [
-        "HTML",
-        "JavaScript"
-      ],
-      "imagem": "bank3F.png"
-    },
-    {
-      "id": "extensao-faculdade",
-      "titulo": "Extensão de Gerenciador de Horários",
-      "categoria": "extensao",
-      "descricao": "Extensão para gerenciamento de horários acadêmicos.",
-      "observacoes": null,
-      "github": "https://github.com/rafaelmelo2/gerenciador-de-horarios-faculdade-extensao",
-      "demo": null,
-      "valorAprendizado": 3,
-      "tecnologias": [
-        "HTML",
-        "JavaScript",
-        "CSS"
-      ],
-      "imagem": "extensao-faculdade.png"
-    },
-    {
-      "id": "inspire-board",
-      "titulo": "Inspire Board",
-      "categoria": "web",
-      "descricao": "Sistema web para criação de vision boards, com busca de inspiração, compartilhamento de ideias e opções de salvar ideias favoritas.",
-      "observacoes": "Projeto finalizado e em produção.",
-      "github": "https://inspireboard.netlify.app/",
-      "demo": null,
-      "valorAprendizado": 5,
-      "tecnologias": [
-        "Java"
-      ],
-      "imagem": "n8n.png"
+      "tecnologias": ["HTML", "JavaScript"],
+      "imagem": "bank3F.png",
+      "arquivo": true
     },
     {
       "id": "battle-royale-fivem",
@@ -193,12 +244,11 @@
       "descricao": "Script para servidor FiveM, com sistema de balas, mortes, kills, etc.",
       "observacoes": null,
       "github": "https://github.com/rafaelmelo2/battle-royale-fivem",
-      "demo": "null",
+      "demo": null,
       "valorAprendizado": 3,
-      "tecnologias": [
-        "Lua"
-      ],
-      "imagem": "battle-royale.png"
+      "tecnologias": ["Lua"],
+      "imagem": "battle-royale.png",
+      "arquivo": true
     }
   ]
 }

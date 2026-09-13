@@ -24,12 +24,22 @@
     {
       "id": "metodo-cis-global-inteligencia-emocional",
       "titulo": "MÉTODO CIS GLOBAL - INTELIGÊNCIA EMOCIONAL",
-      "instituicao": "Priscila Papazissis",
+      "instituicao": "Febracis - Escola de Negócios",
       "periodo": "2025",
       "cargaHoraria": "60h",
       "link": "/certificados/Certificado - MÉTODO CIS GLOBAL - INTELIGÊNCIA EMOCIONAL.pdf",
       "linkValidacao": "",
-      "observacoes": "Coaching Integral Sistêmico, para desenvolver a Inteligência Emocional."
+      "observacoes": "Coaching Integral Sistêmico, para desenvolver a Inteligência Emocional. Código da credencial: a0tV2000011r9S3IAI."
+    },
+    {
+      "id": "ingles-intermediario-b1",
+      "titulo": "Intermediate English Course (B1+)",
+      "instituicao": "London English Center",
+      "periodo": "2021",
+      "cargaHoraria": "",
+      "link": "",
+      "linkValidacao": "",
+      "observacoes": "Inglês intermediário, nível B1+."
     },
     {
       "id": "projeto-completo-python-com-estrutura-de-dados",
