@@ -3,3 +3,6 @@ teste_cara/*
 
 node_modules/
 dist/
+
+# páginas salvas do navegador (contêm dados pessoais)
+*.mhtml
