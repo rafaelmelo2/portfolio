@@ -1,3 +1,9 @@
 [build]
   command = "bun run build"
   publish = "dist"
+
+# SPA: rotas como /blog precisam cair no index.html ao recarregar a página
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
