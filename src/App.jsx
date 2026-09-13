@@ -3,19 +3,22 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import {
   Navbar,
   Hero,
+  Services,
+  Projects,
   About,
   Experience,
-  Projects,
   Skills,
-  Livros,
   Cursos,
-  // Testimonials,
+  Livros,
+  Testimonials,
+  FAQ,
   Contact,
   Footer,
   Blog,
+  BlogPost,
 } from './components'
 
-function HomePage({ scrollTo }) {
+function HomePage() {
   const location = useLocation()
 
   useEffect(() => {
@@ -28,14 +31,17 @@ function HomePage({ scrollTo }) {
 
   return (
     <>
-      <Hero scrollTo={scrollTo} />
-      <About />
+      <Hero />
+      <Services />
       <Projects />
+      <About />
       <Experience />
       <Skills />
       <Cursos />
       <Livros />
-      {/* <Testimonials /> */}
+      {/* Só aparece quando houver depoimentos com "publicado": true em src/data/depoimentos.json */}
+      <Testimonials />
+      <FAQ />
       <Contact />
     </>
   )
@@ -44,36 +50,36 @@ function HomePage({ scrollTo }) {
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => setScrolled(window.scrollY > 24)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollTo = (id) => {
-    setIsMenuOpen(false)
-    if (id === 'blog') return // Navbar trata rota
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+  // Troca de rota sem âncora: volta ao topo
+  useEffect(() => {
+    if (!location.hash) window.scrollTo(0, 0)
+  }, [location.pathname, location.hash])
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-200 font-sans selection:bg-emerald-500/30 overflow-x-hidden">
-      <Navbar
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-        scrolled={scrolled}
-      />
+    <div className="relative min-h-screen overflow-x-hidden">
+      <a
+        href="#conteudo"
+        className="sr-only z-[90] rounded-full bg-signal px-5 py-3 font-display font-bold text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+      >
+        Pular para o conteúdo
+      </a>
 
-      <main>
+      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrolled={scrolled} />
+
+      <main id="conteudo">
         <Routes>
-          <Route path="/" element={<HomePage scrollTo={scrollTo} />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
       </main>
 
