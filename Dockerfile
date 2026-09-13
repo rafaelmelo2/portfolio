@@ -3,8 +3,8 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Instalar dependências (bun ou npm - usando npm para compatibilidade Docker)
-COPY package.json package-lock.json* ./
+# Sem package-lock: o lock do WSL (glibc) impede o npm de pegar o binário musl do Rollup no Alpine
+COPY package.json ./
 RUN npm install
 
 COPY . .
