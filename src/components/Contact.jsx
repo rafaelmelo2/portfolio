@@ -1,5 +1,7 @@
-import { Mail, Linkedin, Github, Globe } from 'lucide-react'
-import { contatos, contatoFormulario } from '../data'
+import { ArrowUpRight, Check, Copy, Github, Globe, Linkedin, Mail } from 'lucide-react'
+import { useState } from 'react'
+import { contatoFormulario, contatos, perfil } from '../data'
+import { Reveal } from './ui'
 
 const ICONES = {
   Mail,
@@ -8,51 +10,102 @@ const ICONES = {
   Globe,
 }
 
-function ContactLink({ item }) {
-  const Icon = ICONES[item.icone] ?? Mail
-  const isEmail = item.tipo === 'email'
-  const isLinkedIn = item.tipo === 'linkedin'
-  const isGitHub = item.tipo === 'github'
-
-  const colorClass = isEmail
-    ? 'hover:text-emerald-400 group-hover:border-emerald-500/50'
-    : isLinkedIn
-      ? 'hover:text-blue-400 group-hover:border-blue-500/50'
-      : isGitHub
-        ? 'hover:text-purple-400 group-hover:border-purple-500/50'
-        : 'hover:text-emerald-400 group-hover:border-emerald-500/50'
-
-  return (
-    <a
-      href={item.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`group flex flex-col items-center gap-2 text-slate-400 transition-colors touch-manipulation min-w-[56px] min-h-[56px] justify-center ${colorClass}`}
-    >
-      <div className="p-3 md:p-4 bg-slate-800 rounded-full group-hover:bg-slate-700 border border-slate-700 transition-all min-w-[48px] min-h-[48px] flex items-center justify-center">
-        <Icon size={20} className="md:w-6 md:h-6 shrink-0" />
-      </div>
-      <span className="text-[10px] md:text-xs uppercase tracking-wider">{item.label}</span>
-    </a>
-  )
-}
-
 export function Contact() {
   const { titulo, subtitulo } = contatoFormulario
+  const emailItem = contatos.find((c) => c.tipo === 'email')
+  const email = emailItem?.url.replace(/^mailto:/, '')
+  const redes = contatos.filter((c) => c.tipo !== 'email' && c.tipo !== 'site')
+  const [copiado, setCopiado] = useState(false)
+
+  const copiar = async () => {
+    try {
+      await navigator.clipboard.writeText(email)
+      setCopiado(true)
+      setTimeout(() => setCopiado(false), 2200)
+    } catch {
+      window.location.href = emailItem.url
+    }
+  }
+
+  const beneficios = ['Aberto a projetos e parcerias', 'Desafios técnicos são bem-vindos', `Base em ${perfil.local}`]
 
   return (
-    <section id="contato" className="py-16 md:py-20 bg-gradient-to-t from-slate-900 via-slate-900 to-slate-800/20">
-      <div className="container mx-auto px-4 md:px-6 text-center max-w-2xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-6">{titulo}</h2>
-        <p className="text-slate-400 mb-8 text-sm md:text-base">
-          {subtitulo}
-        </p>
+    <section id="contato" className="relative overflow-hidden bg-signal text-ink [&_:focus-visible]:outline-ink">
 
-        <div className="flex justify-center gap-6 flex-wrap">
-          {contatos.map((item) => (
-            <ContactLink key={item.id} item={item} />
-          ))}
-        </div>
+      <div className="shell relative py-24 md:py-36">
+        <Reveal>
+          <p className="kicker flex items-center gap-3 text-ink/70">
+            <span>09</span>
+            <span aria-hidden className="h-px w-10 bg-ink/50" />
+            Contato
+          </p>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <h2 className="mt-8 max-w-5xl text-[clamp(2.75rem,7.5vw,6.5rem)] font-extrabold leading-[0.95] tracking-[-0.035em]">
+            {titulo}
+          </h2>
+        </Reveal>
+
+        <Reveal delay={160}>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/75 md:text-xl">{subtitulo}</p>
+        </Reveal>
+
+        {emailItem && (
+          <Reveal delay={240} className="mt-12 flex flex-col gap-4 lg:flex-row lg:items-center">
+            <a
+              href={emailItem.url}
+              className="group inline-flex min-h-[72px] items-center justify-between gap-4 rounded-full bg-ink py-3 pl-6 pr-3 font-display text-base font-bold text-paper transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-20px_rgb(var(--ink)/0.6)] sm:gap-6 sm:pl-8 sm:text-2xl md:text-3xl"
+            >
+              <span className="truncate">{email}</span>
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-signal text-ink transition-transform duration-300 group-hover:rotate-45 md:h-16 md:w-16">
+                <ArrowUpRight size={26} />
+              </span>
+            </a>
+            <button
+              type="button"
+              onClick={copiar}
+              className="inline-flex min-h-[56px] items-center justify-center gap-2 rounded-full border-2 border-ink/80 px-7 font-mono text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:bg-ink hover:text-signal"
+            >
+              {copiado ? <Check size={18} /> : <Copy size={18} />}
+              <span aria-live="polite">{copiado ? 'Copiado!' : 'Copiar e-mail'}</span>
+            </button>
+          </Reveal>
+        )}
+
+        <Reveal delay={320} className="mt-16 grid gap-10 border-t border-ink/20 pt-10 md:grid-cols-2">
+          <ul className="grid gap-3 font-medium">
+            {beneficios.map((b) => (
+              <li key={b} className="flex items-center gap-3">
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ink text-signal">
+                  <Check size={14} />
+                </span>
+                {b}
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-wrap gap-3 md:justify-end md:self-end">
+            {redes.map((rede) => {
+              const Icon = ICONES[rede.icone] ?? Globe
+              return (
+                <a
+                  key={rede.id}
+                  href={rede.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex min-h-[52px] items-center gap-3 rounded-full border-2 border-ink/80 px-6 font-display text-lg font-semibold transition-colors duration-300 hover:bg-ink hover:text-signal"
+                >
+                  <Icon size={20} />
+                  {rede.label}
+                  <ArrowUpRight
+                    size={18}
+                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </a>
+              )
+            })}
+          </div>
+        </Reveal>
       </div>
     </section>
   )

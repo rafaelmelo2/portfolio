@@ -1,47 +1,71 @@
-import { Brain } from 'lucide-react'
+import { useState } from 'react'
 import { experiencias } from '../data'
+import { Reveal, SectionHeading } from './ui'
 
-export function ExperienceCard({ experiencia }) {
-  const { cargo, empresa, periodo, cor, destaques } = experiencia
+const DESTAQUES_VISIVEIS = 4
+
+const limpar = (texto) => texto.trim().replace(/[;.]$/, '')
+
+export function ExperienceCard({ experiencia, atual = false }) {
+  const [aberto, setAberto] = useState(false)
+  const { cargo, empresa, periodo, destaques } = experiencia
+  const ocultos = destaques.length - DESTAQUES_VISIVEIS
+  const lista = aberto ? destaques : destaques.slice(0, DESTAQUES_VISIVEIS)
 
   return (
-    <div className="relative pl-8 md:pl-12 group">
-      <div
-        className={`absolute left-0 md:-left-[9px] top-0 h-3 w-3 md:h-4 md:w-4 rounded-full ${cor} ring-4 ring-slate-900 group-hover:scale-125 transition-transform`}
-      />
-      <div className="bg-slate-800/40 p-5 md:p-6 rounded-xl border border-slate-700 hover:border-slate-600 transition-colors">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-          <div>
-            <h3 className="text-lg md:text-xl font-bold text-slate-100">{cargo}</h3>
-            <p className="text-emerald-400 font-medium text-sm md:text-base">{empresa}</p>
-          </div>
-          <span className="text-xs font-mono text-slate-500 bg-slate-900 px-3 py-1 rounded-full border border-slate-700 whitespace-nowrap">
-            {periodo}
-          </span>
-        </div>
-        <ul className="text-slate-400 text-sm md:text-base space-y-2 list-disc list-inside">
-          {destaques.map((item, i) => (
-            <li key={i}>{item}</li>
+    <article className="group grid gap-5 border-b border-line py-10 md:grid-cols-12 md:gap-8 md:py-14">
+      <div className="md:col-span-3">
+        <p className="kicker text-muted">{periodo}</p>
+        {atual && (
+          <p className="chip mt-4 gap-2 border-signal/50 text-signal">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal" />
+            Atual
+          </p>
+        )}
+      </div>
+      <div className="md:col-span-9">
+        <h3 className="text-2xl font-bold leading-tight tracking-tight transition-colors duration-300 group-hover:text-signal md:text-4xl">
+          {cargo}
+        </h3>
+        <p className="mt-2 text-muted md:text-lg">{empresa}</p>
+        <ul className="mt-7 grid gap-x-10 gap-y-3 md:grid-cols-2">
+          {lista.map((item, i) => (
+            <li key={i} className="flex gap-3 leading-relaxed text-paper/80">
+              <span aria-hidden className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rotate-45 bg-signal" />
+              {limpar(item)}
+            </li>
           ))}
         </ul>
+        {ocultos > 0 && (
+          <button
+            type="button"
+            onClick={() => setAberto((v) => !v)}
+            aria-expanded={aberto}
+            className="kicker mt-6 inline-flex min-h-[44px] items-center text-signal transition-colors hover:text-paper"
+          >
+            {aberto ? '− Mostrar menos' : `+ ${ocultos} atividades`}
+          </button>
+        )}
       </div>
-    </div>
+    </article>
   )
 }
 
 export function Experience() {
   return (
-    <section id="experiencia" className="py-16 md:py-20">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-12 flex items-center gap-3">
-          <Brain className="text-emerald-400" /> Trajetória
-        </h2>
+    <section id="experiencia" className="border-t border-line bg-ink-2/40 py-24 md:py-36">
+      <div className="shell">
+        <SectionHeading index="04" kicker="Trajetória" title="Da infraestrutura à inteligência artificial.">
+          De plantões de TI em hospital a sistemas com IA na indústria automotiva: cada etapa somou uma camada.
+        </SectionHeading>
 
-        <div className="relative border-l border-slate-700 ml-1.5 md:ml-6 space-y-12">
+        <ol className="border-t border-line">
           {experiencias.map((exp) => (
-            <ExperienceCard key={exp.id} experiencia={exp} />
+            <Reveal as="li" key={exp.id}>
+              <ExperienceCard experiencia={exp} atual={/o momento|atual/i.test(exp.periodo)} />
+            </Reveal>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )

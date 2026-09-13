@@ -1,55 +1,171 @@
-import { ChevronRight, Download } from 'lucide-react'
+import { ArrowUpRight, Download } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { anoInicioCarreira, contatos, cursos, empresas, perfil, projetos } from '../data'
+import { Stat } from './ui'
 
-export function Hero({ scrollTo }) {
+// Título animado palavra a palavra. br: quebra de linha depois · colado: sem espaço antes
+const PALAVRAS = [
+  { t: 'Onde' },
+  { t: 'código', br: true },
+  { t: 'encontra', c: 'text-outline', br: true },
+  { t: 'inteligência.', c: 'bg-gradient-to-r from-signal to-accent bg-clip-text pb-[0.12em] text-transparent' },
+]
+
+export function Hero() {
+  const email = contatos.find((c) => c.tipo === 'email')?.url
+
+  const stats = [
+    { value: new Date().getFullYear() - anoInicioCarreira, suffix: '+', label: 'anos na área de TI' },
+    { value: projetos.length, label: 'projetos no portfólio' },
+    { value: cursos.length, label: 'cursos certificados' },
+    { value: empresas.length, label: 'empresas e instituições' },
+  ]
+
+  // Repetido 4x para o letreiro nunca mostrar buraco em telas largas
+  const letreiro = [...empresas, ...empresas, ...empresas, ...empresas]
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-24 pb-12 relative overflow-hidden px-4 md:px-6">
-      <div className="absolute top-20 right-0 w-64 h-64 md:w-96 md:h-96 bg-emerald-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
-      <div className="absolute bottom-20 left-0 w-48 h-48 md:w-72 md:h-72 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+    <section id="home" className="relative overflow-hidden pt-24 md:pt-32">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-48 -top-48 h-[38rem] w-[38rem] rounded-full bg-signal/10 blur-[130px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-40 bottom-24 h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-[120px]"
+      />
 
-      <div className="container mx-auto grid lg:grid-cols-2 gap-4 lg:gap-6 items-center">
-        <div className="order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] md:text-xs font-semibold mb-6 border border-emerald-500/20">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            Disponível para contratação
+      <div className="shell relative">
+        <div className="flex animate-rise flex-wrap items-center justify-between gap-3 border-b border-line pb-5">
+          {perfil.status && (
+            <p className="kicker flex items-center gap-2.5 text-paper">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-70" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-signal" />
+              </span>
+              {perfil.status}
+            </p>
+          )}
+          <p className="kicker text-faint">{perfil.local} · Brasil</p>
+        </div>
+
+        <div className="grid items-end gap-14 py-12 md:py-16 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-8">
+            <h1 className="text-[clamp(3rem,8.4vw,7.5rem)] font-extrabold leading-[0.92] tracking-[-0.045em]">
+              <span className="sr-only">Rafael Melo — IA aplicada, automação e dados. </span>
+              {PALAVRAS.map((p, i) => (
+                <span key={p.t}>
+                  {!p.colado && i > 0 && ' '}
+                  <span
+                    className={`inline-block animate-rise ${p.c ?? 'text-paper'}`}
+                    style={{ animationDelay: `${140 + i * 90}ms` }}
+                  >
+                    {p.t}
+                  </span>
+                  {p.br && <br />}
+                </span>
+              ))}
+            </h1>
+
+            <p
+              className="mt-8 max-w-xl animate-rise text-lg leading-relaxed text-muted md:text-xl"
+              style={{ animationDelay: '560ms' }}
+            >
+              Sou <strong className="font-semibold text-paper">{perfil.nome}</strong>, {perfil.cargoAtual} na{' '}
+              {perfil.empresaAtual} (Mitsubishi) e bacharel em Ciência da Computação. Construo sistemas com IA,
+              automações e dashboards que resolvem problemas reais.
+            </p>
+
+            <div
+              className="mt-10 flex animate-rise flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center"
+              style={{ animationDelay: '680ms' }}
+            >
+              <a
+                href={email}
+                className="group inline-flex min-h-[60px] items-center justify-between gap-6 rounded-full bg-signal py-2 pl-7 pr-2 font-display text-lg font-bold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-12px_rgb(var(--signal)/0.55)]"
+              >
+                Vamos conversar
+                <span className="grid h-11 w-11 place-items-center rounded-full bg-ink text-signal transition-transform duration-300 group-hover:rotate-45">
+                  <ArrowUpRight size={20} />
+                </span>
+              </a>
+              <Link
+                to="/#projetos"
+                className="group inline-flex min-h-[60px] items-center justify-center gap-2 rounded-full border border-line px-7 font-display text-lg font-semibold text-paper transition-colors duration-300 hover:border-paper"
+              >
+                Ver projetos
+                <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+              {perfil.cv && (
+                <a
+                  href={perfil.cv}
+                  download
+                  className="kicker inline-flex min-h-[44px] items-center justify-center gap-2 text-muted transition-colors hover:text-signal"
+                >
+                  <Download size={16} /> Baixar CV
+                </a>
+              )}
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-100 mb-6 leading-tight">
-          Onde código encontra <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
-              Inteligência
-            </span>
-          </h1>
-          <p className="text-base md:text-lg text-slate-400 mb-8 max-w-lg leading-relaxed">
-            Transformando dados brutos em inteligência acionável. <br />
-            Estagiário na HPE Automotores e futuro Cientista da Computação, focado em dados, IA e automação.
-            <br />Técnico e criativo.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <button onClick={() => scrollTo('projetos')} className="bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold py-3 px-8 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 w-full sm:w-auto">
-              Ver Projetos <ChevronRight size={18} />
-            </button>
-            <button className="border border-slate-700 hover:border-slate-500 text-slate-300 py-3 px-8 rounded-lg transition-all flex items-center justify-center gap-2 group w-full sm:w-auto">
-              <Download size={18} className="group-hover:translate-y-1 transition-transform" /> Download CV
-            </button>
+
+          <div className="animate-rise lg:col-span-4" style={{ animationDelay: '320ms' }}>
+            <figure className="group relative mx-auto max-w-sm lg:max-w-none">
+              <div className="relative -rotate-2 overflow-hidden rounded-[2rem] border border-line bg-ink-2 shadow-[0_40px_90px_-40px_rgb(0_0_0/0.9)] transition-transform duration-700 ease-out group-hover:rotate-0">
+                <img
+                  src={perfil.foto}
+                  alt={`Retrato de ${perfil.nome}`}
+                  width="800"
+                  height="800"
+                  fetchpriority="high"
+                  className="aspect-[4/5] w-full object-cover grayscale-[40%] transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-ink via-ink/75 to-transparent p-5 pt-20">
+                  <span>
+                    <span className="block font-display text-xl font-bold">{perfil.nome}</span>
+                    <span className="kicker mt-1 block text-signal">
+                      {perfil.cargoAtual} @ {perfil.empresaAtual}
+                    </span>
+                  </span>
+                  <span aria-hidden className="kicker text-faint">
+                    RM—01
+                  </span>
+                </figcaption>
+              </div>
+              <span
+                aria-hidden
+                className="absolute -left-3 top-8 -rotate-[8deg] rounded-full bg-accent px-4 py-2 font-mono text-xs font-medium text-ink shadow-xl transition-transform duration-500 group-hover:-rotate-[4deg] sm:-left-6"
+              >
+                IA · dados · automação
+              </span>
+            </figure>
           </div>
         </div>
 
-        <div className="order-2 flex justify-center lg:justify-end relative mt-6 lg:mt-0">
-          <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[30rem] lg:h-[30rem] xl:w-[32rem] xl:h-[32rem]">
-            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-blue-500 rounded-[2rem] rotate-6 opacity-30 blur-lg"></div>
-            <div className="absolute inset-0 bg-slate-800 rounded-[2rem] border border-slate-700 shadow-2xl overflow-hidden group">
-              <img
-                src="./imgs/eu5.jpg"
-                alt="Foto de Perfil Profissional"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100"
-              />
-              <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent">
-                <p className="text-white font-bold text-lg">Rafael Melo</p>
-                <p className="text-emerald-400 text-sm">AI Intern</p>
-              </div>
-            </div>
+        <div className="grid grid-cols-2 gap-px overflow-hidden border-y border-line bg-line md:grid-cols-4">
+          {stats.map((s) => (
+            <Stat key={s.label} {...s} className="bg-ink py-8 pr-3 md:px-6 md:first:pl-0" />
+          ))}
+        </div>
+
+        <div className="flex items-center gap-6 py-7">
+          <p className="kicker shrink-0 text-faint">Já atuei em</p>
+          <div className="marquee relative flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
+            <ul className="marquee-track flex w-max animate-marquee">
+              {letreiro.map((empresa, i) => (
+                <li
+                  key={`${empresa}-${i}`}
+                  aria-hidden={i >= empresas.length}
+                  className="flex items-center gap-6 whitespace-nowrap pr-6 font-display text-xl font-semibold text-paper/80 md:text-2xl"
+                >
+                  {empresa}
+                  <span aria-hidden className="text-signal">
+                    ✦
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

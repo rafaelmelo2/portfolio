@@ -1,127 +1,113 @@
-import { FileText, GraduationCap } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { useState } from 'react'
 import { cursos } from '../data'
 import { CertificatePreview } from './CertificatePreview'
+import { Reveal, SectionHeading } from './ui'
 
-const EXTENSOES_IMAGEM = /\.(jpe?g|png|gif|webp|svg)(\?|$)/i
-const EXTENSAO_PDF = /\.pdf(\?|$)/i
-
-function isImagem(url) {
-  if (!url || typeof url !== 'string') return false
-  return EXTENSOES_IMAGEM.test(url)
-}
-
-function isPdf(url) {
-  if (!url || typeof url !== 'string') return false
-  return EXTENSAO_PDF.test(url)
-}
+const VISIVEIS_INICIALMENTE = 6
 
 function CursoCard({ curso, onPreviewCertificado }) {
   const { titulo, instituicao, periodo, cargaHoraria, link, linkValidacao, observacoes } = curso
-  const openPreview = () => onPreviewCertificado?.(link, titulo, linkValidacao)
-  const linkNorm = link?.trim().startsWith('/') ? link.trim() : `/${link?.trim() || ''}`
-  const linkUrl = linkNorm ? linkNorm.split('/').map(encodeURIComponent).join('/') : ''
+  const abrir = () => onPreviewCertificado?.(link, titulo, linkValidacao)
 
   return (
-    <div className="bg-slate-800/40 p-5 md:p-6 rounded-xl border border-slate-700 hover:border-slate-600 transition-colors">
-      <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-        {/* Miniatura clicável: preview à mostra, clique abre o modal */}
-        {link && (
-          <button
-            type="button"
-            onClick={openPreview}
-            className="shrink-0 w-20 h-20 sm:w-20 sm:h-20 rounded-lg border border-slate-600 overflow-hidden bg-slate-800 hover:border-emerald-500/50 hover:ring-2 hover:ring-emerald-500/20 active:ring-emerald-500/30 transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/50 touch-manipulation"
-            title="Clique para ver o certificado"
-          >
-            {isImagem(linkNorm) ? (
-              <img
-                src={linkUrl}
-                alt=""
-                className="w-full h-full object-cover"
-              />
-            ) : isPdf(linkNorm) ? (
-              <span className="w-full h-full block relative bg-slate-800 overflow-hidden">
-                <iframe
-                  src={`${linkUrl}#toolbar=0`}
-                  title="Preview do certificado"
-                  className="absolute left-0 top-0 pointer-events-none border-0 bg-white"
-                  style={{
-                    width: '400px',
-                    height: '560px',
-                    transform: 'scale(0.2)',
-                    transformOrigin: '0 0',
-                  }}
-                />
-              </span>
-            ) : (
-              <span className="w-full h-full flex items-center justify-center text-slate-500">
-                <FileText size={32} />
-              </span>
-            )}
-          </button>
-        )}
-        <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-bold text-slate-100 mb-1">{titulo}</h3>
-          <p className="text-emerald-400 text-sm mb-2">{instituicao}</p>
-          {(periodo || cargaHoraria) && (
-            <p className="text-slate-500 text-xs font-mono">
-              {[periodo, cargaHoraria].filter(Boolean).join(' · ')}
-            </p>
+    <article className="group flex h-full flex-col rounded-[1.5rem] border border-line bg-ink-2 p-2.5 transition-colors duration-500 hover:border-signal/40">
+      {/* Miniatura desenhada em CSS (bem mais leve que carregar cada PDF num iframe) */}
+      <button
+        type="button"
+        onClick={abrir}
+        disabled={!link}
+        aria-label={`Ver certificado: ${titulo}`}
+        className="relative block aspect-[16/10] w-full overflow-hidden rounded-[1.1rem] bg-ink-3 disabled:cursor-default"
+      >
+        <span className="absolute inset-5 flex flex-col justify-between rounded-md bg-paper p-4 text-left text-ink shadow-[0_24px_50px_-20px_rgb(0_0_0/0.8)] transition-transform duration-500 ease-out [transform:rotate(-2.5deg)] group-hover:[transform:rotate(0deg)_translateY(-4px)]">
+          <span className="flex items-start justify-between gap-3">
+            <span className="truncate font-mono text-[0.6rem] uppercase tracking-[0.18em] text-ink/60">
+              {instituicao}
+            </span>
+            <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 border-ink/70">
+              <span className="h-2 w-2 rounded-full bg-accent" />
+            </span>
+          </span>
+          <span className="line-clamp-2 font-display text-base font-bold leading-tight">{titulo}</span>
+          <span className="flex items-end justify-between font-mono text-[0.6rem] text-ink/60">
+            <span>{periodo}</span>
+            <span>{cargaHoraria}</span>
+          </span>
+        </span>
+      </button>
+
+      <div className="flex flex-1 flex-col p-4 md:p-5">
+        <p className="kicker text-signal">{instituicao}</p>
+        <h3 className="mt-2 text-lg font-bold leading-snug">{titulo}</h3>
+        <p className="mt-1 font-mono text-xs text-faint">{[periodo, cargaHoraria].filter(Boolean).join(' · ')}</p>
+        {observacoes && <p className="mt-3 text-sm leading-relaxed text-muted">{observacoes}</p>}
+        <div className="mt-auto flex flex-wrap items-center gap-x-5 pt-5">
+          {link && (
+            <button
+              type="button"
+              onClick={abrir}
+              className="inline-flex min-h-[44px] items-center font-display font-semibold text-paper transition-colors hover:text-signal"
+            >
+              Ver certificado →
+            </button>
           )}
-          {observacoes && (
-            <p className="text-slate-400 text-sm mt-2">{observacoes}</p>
+          {linkValidacao && (
+            <a
+              href={linkValidacao}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="kicker inline-flex min-h-[44px] items-center gap-1 text-muted transition-colors hover:text-signal"
+            >
+              Validar <ArrowUpRight size={14} />
+            </a>
           )}
-          <div className="flex flex-wrap gap-2 mt-3">
-            {link && (
-              <>
-                <button
-                  type="button"
-                  onClick={openPreview}
-                  className="min-h-[44px] px-3 py-2 text-sm text-emerald-400 hover:text-emerald-300 active:text-emerald-300 transition-colors touch-manipulation rounded-lg -ml-1"
-                >
-                  Ver certificado →
-                </button>
-              </>
-            )}
-            {linkValidacao && (
-              <a
-                href={linkValidacao}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="min-h-[44px] inline-flex items-center text-xs text-slate-400 hover:text-slate-200 transition-colors px-3 py-2 rounded-lg border border-slate-600 hover:border-slate-500 touch-manipulation"
-                title="Validar certificado na plataforma"
-              >
-                Validar certificado
-              </a>
-            )}
-          </div>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 
 export function Cursos() {
   const [preview, setPreview] = useState(null)
+  const [todos, setTodos] = useState(false)
 
   if (!cursos?.length) return null
 
+  const lista = todos ? cursos : cursos.slice(0, VISIVEIS_INICIALMENTE)
+
   return (
-    <section id="cursos" className="py-16 md:py-20 bg-slate-900/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-12 flex items-center gap-3">
-          <GraduationCap className="text-emerald-400" /> Cursos
-        </h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {cursos.map((curso) => (
-            <CursoCard
-              key={curso.id}
-              curso={curso}
-              onPreviewCertificado={(url, title, linkValidacao) => setPreview({ url, title, linkValidacao })}
-            />
+    <section id="cursos" className="border-t border-line bg-ink-2/40 py-24 md:py-36">
+      <div className="shell">
+        <SectionHeading index="06" kicker="Cursos" title="Estudo contínuo, com certificado.">
+          Os certificados abrem aqui mesmo. Quando a plataforma permite, dá para validar a autenticidade.
+        </SectionHeading>
+
+        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {lista.map((curso, i) => (
+            <Reveal as="li" key={curso.id} delay={(i % 3) * 80}>
+              <CursoCard
+                curso={curso}
+                onPreviewCertificado={(url, title, linkValidacao) => setPreview({ url, title, linkValidacao })}
+              />
+            </Reveal>
           ))}
-        </div>
+        </ul>
+
+        {cursos.length > VISIVEIS_INICIALMENTE && (
+          <div className="mt-12 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setTodos((v) => !v)}
+              aria-expanded={todos}
+              className="inline-flex min-h-[52px] items-center gap-2 rounded-full border border-line px-7 font-display font-semibold transition-colors duration-300 hover:border-signal hover:text-signal"
+            >
+              {todos ? 'Mostrar menos' : `Ver todos os ${cursos.length} cursos`}
+            </button>
+          </div>
+        )}
       </div>
+
       {preview && (
         <CertificatePreview
           url={preview.url}

@@ -59,23 +59,23 @@ export function CertificatePreview({ url, title = 'Certificado', linkValidacao, 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-sm"
+      className="fixed inset-0 z-[80] flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-label={`Preview: ${title}`}
       onClick={onClose}
     >
       <div
-        className="relative flex flex-col w-full max-w-3xl max-h-[90vh] sm:max-h-[85vh] bg-slate-900 rounded-xl border border-slate-600 shadow-2xl overflow-hidden"
+        className="relative flex flex-col w-full max-w-3xl max-h-[90vh] sm:max-h-[85vh] bg-ink rounded-2xl border border-line shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 px-3 sm:px-4 py-3 bg-slate-800/80 border-b border-slate-700 shrink-0">
+        <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 px-3 sm:px-4 py-3 bg-ink-2 border-b border-line shrink-0">
           <div className="flex items-center justify-between gap-2 min-w-0">
-            <span className="text-slate-200 font-medium truncate text-sm sm:text-base">{title}</span>
+            <span className="text-paper font-medium truncate text-sm sm:text-base">{title}</span>
             <button
               type="button"
               onClick={onClose}
-              className="min-w-[44px] min-h-[44px] p-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-700 transition-colors touch-manipulation flex items-center justify-center shrink-0 sm:hidden"
+              className="min-w-[44px] min-h-[44px] p-2 rounded-lg text-muted hover:text-paper hover:bg-ink-3 transition-colors touch-manipulation flex items-center justify-center shrink-0 sm:hidden"
               aria-label="Fechar"
             >
               <X size={22} />
@@ -87,7 +87,7 @@ export function CertificatePreview({ url, title = 'Certificado', linkValidacao, 
                 href={linkValidacao}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 min-h-[44px] px-3 py-2 text-sm text-amber-400 hover:text-amber-300 transition-colors touch-manipulation"
+                className="inline-flex items-center gap-1.5 min-h-[44px] px-3 py-2 text-sm text-accent hover:text-paper transition-colors touch-manipulation"
                 title="Validar certificado na plataforma"
               >
                 <ShieldCheck size={18} />
@@ -98,7 +98,7 @@ export function CertificatePreview({ url, title = 'Certificado', linkValidacao, 
               href={urlSrc}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 min-h-[44px] px-3 py-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors touch-manipulation"
+              className="inline-flex items-center gap-1.5 min-h-[44px] px-3 py-2 text-sm text-signal hover:text-paper transition-colors touch-manipulation"
               title="Abrir em nova aba"
             >
               <ExternalLink size={18} />
@@ -107,14 +107,14 @@ export function CertificatePreview({ url, title = 'Certificado', linkValidacao, 
             <button
               type="button"
               onClick={onClose}
-              className="hidden sm:flex min-w-[44px] min-h-[44px] p-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-700 transition-colors items-center justify-center touch-manipulation"
+              className="hidden sm:flex min-w-[44px] min-h-[44px] p-2 rounded-lg text-muted hover:text-paper hover:bg-ink-3 transition-colors items-center justify-center touch-manipulation"
               aria-label="Fechar"
             >
               <X size={20} />
             </button>
           </div>
         </header>
-        <div className="flex-1 min-h-0 flex items-center justify-center bg-slate-950 overflow-auto p-3 sm:p-4">
+        <div className="flex-1 min-h-0 flex items-center justify-center bg-black overflow-auto p-3 sm:p-4">
           {usarImagem ? (
             <img
               src={urlSrc}

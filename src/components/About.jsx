@@ -1,50 +1,70 @@
+import { perfil } from '../data'
+import { Reveal, SectionHeading } from './ui'
 
 export function About() {
+  const fatos = [
+    { rotulo: 'Hoje', valor: `${perfil.cargoAtual} na ${perfil.empresaAtual}` },
+    { rotulo: 'Foco atual', valor: perfil.foco },
+    { rotulo: 'Formação', valor: perfil.formacao },
+    { rotulo: 'Base', valor: perfil.local },
+  ]
+
   return (
-    <section id="sobre" className="py-16 md:py-20 bg-slate-900/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="relative order-2 lg:order-1">
-            <div className="absolute -inset-2 md:-inset-4 bg-slate-800 rounded-xl rotate-3 opacity-50"></div>
-            <div className="relative bg-slate-800 rounded-xl overflow-hidden border border-slate-700 h-64 md:h-[400px]">
-              <div className="flex flex-col items-center justify-center h-full text-slate-500 bg-slate-900 px-4">
-                <img src="/imgs/eu6.png" alt="Fael" className="w-full h-full object-cover" />
-                <p className="text-sm text-center"></p>
-              </div>
+    <section id="sobre" className="relative border-t border-line py-24 md:py-36">
+      <div className="shell grid gap-16 lg:grid-cols-12 lg:gap-10">
+        <Reveal className="lg:col-span-5">
+          <figure className="mr-3 lg:sticky lg:top-28">
+            <div className="relative">
+              <div aria-hidden className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-signal/40" />
+              <img
+                src={perfil.fotoTrabalho}
+                alt={`${perfil.nome} programando em seu setup com dois monitores`}
+                width="1184"
+                height="864"
+                loading="lazy"
+                decoding="async"
+                className="relative aspect-[4/5] w-full rounded-[2rem] object-cover object-[72%_center]"
+              />
             </div>
-          </div>
+            <figcaption className="kicker mt-8 text-faint">— Mão na massa, todo dia.</figcaption>
+          </figure>
+        </Reveal>
 
-          <div className="order-1 lg:order-2">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-6 flex items-center gap-3">
-              Sobre Mim 
-              <div className="h-px bg-emerald-500 flex-grow max-w-[50px] md:max-w-[100px]"></div>
-            </h2>
+        <div className="lg:col-span-7 lg:pl-10">
+          <SectionHeading
+            index="03"
+            kicker="Sobre"
+            title={
+              <>
+                Técnico <span className="text-outline">e</span> criativo.
+              </>
+            }
+          />
 
-            <p className="text-slate-400 leading-relaxed mb-6 text-sm md:text-base">
-              Sou estudante de Ciência da Computação com forte foco em transformar ideias em soluções digitais funcionais, escaláveis e orientadas a resultados.
+          <Reveal delay={80}>
+            <p className="text-2xl font-medium leading-snug text-paper md:text-3xl">
+              Sou bacharel em Ciência da Computação e gosto de transformar problemas do dia a dia em soluções
+              práticas, na empresa e em projetos próprios.
             </p>
-
-            <p className="text-slate-400 leading-relaxed mb-8 text-sm md:text-base">
-              Atualmente, atuo como estagiário na HPE Automotores, aplicando inteligência artificial, automação e análise de dados para otimizar processos industriais. Paralelamente, desenvolvo projetos próprios envolvendo SaaS, bots, sistemas web e infraestrutura em nuvem, sempre buscando unir tecnologia, eficiência e impacto real.
+            <p className="mt-8 text-lg leading-relaxed text-muted">
+              Na {perfil.empresaAtual} (Mitsubishi), onde entrei como estagiário e hoje sou {perfil.cargoAtual},
+              trabalho com administração e evolução de plataformas de IA, integração de sistemas e automação de
+              rotinas e dashboards, e lidero tecnicamente a frente de arquitetura de dados (Lakehouse) com uma
+              equipe parceira. Tenho base em desenvolvimento full stack (React, Node.js, TypeScript, Python) e venho
+              me aprofundando em engenharia de dados e infraestrutura de IA.
             </p>
+          </Reveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-slate-800/50 p-4 rounded-lg border-l-4 border-emerald-500">
-                <h4 className="font-bold text-slate-200 text-sm md:text-base">Foco Atual</h4>
-                <p className="text-xs md:text-sm text-slate-400">
-                  IA Aplicada, Automação & Full Stack
-                </p>
-              </div>
-
-              <div className="bg-slate-800/50 p-4 rounded-lg border-l-4 border-blue-500">
-                <h4 className="font-bold text-slate-200 text-sm md:text-base">Objetivo</h4>
-                <p className="text-xs md:text-sm text-slate-400">
-                  Atuar como Engenheiro de Software / IA
-                </p>
-              </div>
-            </div>
-          </div>
-
+          <Reveal delay={160}>
+            <dl className="mt-14 grid border-t border-line sm:grid-cols-2">
+              {fatos.map((f) => (
+                <div key={f.rotulo} className="border-b border-line py-6 sm:odd:pr-6 sm:even:border-l sm:even:pl-6">
+                  <dt className="kicker text-faint">{f.rotulo}</dt>
+                  <dd className="mt-2 font-display text-xl font-semibold leading-snug">{f.valor}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
         </div>
       </div>
     </section>

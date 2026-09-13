@@ -1,114 +1,80 @@
-import { BookOpen } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { livros } from '../data'
+import { Reveal, SectionHeading } from './ui'
 
-const STATUS_ORDEM = ['li', 'lendo', 'ler']
-const STATUS_LABEL = {
-  li: 'Lido',
-  lendo: 'Lendo',
-  ler: 'Quero ler',
-}
-const STATUS_COLOR = {
-  li: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
-  lendo: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  ler: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
-}
+const COLUNAS = [
+  { status: 'lendo', rotulo: 'Lendo agora' },
+  { status: 'li', rotulo: 'Lidos' },
+  { status: 'ler', rotulo: 'Na fila' },
+]
+const STATUS_VALIDOS = COLUNAS.map((c) => c.status)
 
-const MAX_VISIVEIS_SEM_ROLAGEM = 4
-
-function agruparPorStatus(lista) {
-  const grupos = {li: [], lendo: [], ler: [] }
-  lista.forEach((livro) => {
-    const status = STATUS_ORDEM.includes(livro.status) ? livro.status : 'ler'
-    if (grupos[status]) grupos[status].push(livro)
-  })
-  return STATUS_ORDEM.map((status) => ({ status, livros: grupos[status] })).filter(
-    (g) => g.livros.length > 0
+function Nota({ nota }) {
+  return (
+    <span role="img" aria-label={`Nota ${nota} de 5`} className="flex gap-1.5">
+      {[1, 2, 3, 4, 5].map((n) => (
+        <span key={n} className={`h-2 w-2 rotate-45 ${n <= nota ? 'bg-signal' : 'bg-line'}`} />
+      ))}
+    </span>
   )
 }
 
-function LivroCard({ livro, compacto }) {
-  const statusClass = STATUS_COLOR[livro.status] ?? STATUS_COLOR.ler
-
+function LivroItem({ livro }) {
   return (
-    <div
-      className={`rounded-xl border border-slate-700 bg-slate-800/40 transition-colors hover:border-slate-600 ${
-        compacto ? 'p-3' : 'p-5 md:p-6'
-      }`}
-    >
-      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4">
-        <div className="flex-1 min-w-0">
-          <h3 className={`font-bold text-slate-100 ${compacto ? 'text-base' : 'text-lg'} mb-0.5`}>
-            {livro.titulo}
-          </h3>
-          <p className="text-emerald-400 text-sm">{livro.autor}</p>
-          {!compacto && livro.observacoes && (
-            <p className="text-slate-400 text-sm mt-1">{livro.observacoes}</p>
-          )}
-        </div>
-        <div className="flex flex-wrap gap-2 shrink-0">
-          {livro.nota != null && (
-            <span className="text-xs font-mono text-slate-500 bg-slate-900 px-2.5 py-1 rounded-full border border-slate-700">
-              ⭐ {livro.nota}/5
-            </span>
-          )}
-          <span className="text-xs text-slate-500 px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700">
-            {livro.categoria}
-          </span>
-        </div>
+    <li className="group border-b border-line py-5">
+      <p className="font-display text-lg font-semibold leading-snug transition-colors duration-300 group-hover:text-signal">
+        {livro.titulo}
+      </p>
+      <p className="mt-1 text-sm text-muted">{livro.autor}</p>
+      {livro.observacoes && <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-faint">{livro.observacoes}</p>}
+      <div className="mt-3 flex flex-wrap items-center gap-3">
+        <span className="chip">{livro.categoria}</span>
+        {livro.nota > 0 && <Nota nota={livro.nota} />}
       </div>
       {livro.link && (
         <a
           href={livro.link}
           target="_blank"
           rel="noopener noreferrer"
-          className={`text-emerald-400 hover:text-emerald-300 transition-colors ${compacto ? 'mt-2 inline-block text-xs' : 'mt-4 inline-block text-sm'}`}
+          className="kicker mt-3 inline-flex min-h-[44px] items-center gap-1 text-signal hover:text-paper"
         >
-          Ver mais →
+          Ver mais <ArrowUpRight size={14} />
         </a>
       )}
-    </div>
-  )
-}
-
-function GrupoLivros({ status, livros: livrosDoGrupo }) {
-  const label = STATUS_LABEL[status] ?? status
-  const usaRolagem = livrosDoGrupo.length > MAX_VISIVEIS_SEM_ROLAGEM
-  const compacto = status === 'li' && livrosDoGrupo.length > 2
-
-  return (
-    <div className="mb-10 last:mb-0">
-      <h3 className="text-lg font-semibold text-slate-200 mb-4 flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-emerald-500" />
-        {label}
-        <span className="text-slate-500 font-normal text-sm">({livrosDoGrupo.length})</span>
-      </h3>
-      <div
-        className={`grid gap-4 md:grid-cols-2 ${usaRolagem ? 'livros-rolagem max-h-[320px] overflow-y-auto pr-2' : ''}`}
-        style={usaRolagem ? { scrollbarGutter: 'stable' } : undefined}
-      >
-        {livrosDoGrupo.map((livro) => (
-          <LivroCard key={livro.id} livro={livro} compacto={compacto} />
-        ))}
-      </div>
-    </div>
+    </li>
   )
 }
 
 export function Livros() {
   if (!livros?.length) return null
 
-  const grupos = agruparPorStatus(livros)
-
   return (
-    <section id="livros" className="py-16 md:py-20 bg-slate-900/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-12 flex items-center gap-3">
-          <BookOpen className="text-emerald-400" /> Livros
-        </h2>
-        <div className="max-w-4xl">
-          {grupos.map((grupo) => (
-            <GrupoLivros key={grupo.status} status={grupo.status} livros={grupo.livros} />
-          ))}
+    <section id="livros" className="border-t border-line py-24 md:py-36">
+      <div className="shell">
+        <SectionHeading index="07" kicker="Livros" title="Estante aberta.">
+          O que estou lendo, o que já li e o que vem na fila, entre técnica e desenvolvimento pessoal.
+        </SectionHeading>
+
+        <div className="grid gap-12 md:grid-cols-3 md:gap-8">
+          {COLUNAS.map((coluna, i) => {
+            const lista = livros.filter(
+              (l) => (STATUS_VALIDOS.includes(l.status) ? l.status : 'ler') === coluna.status
+            )
+            if (!lista.length) return null
+            return (
+              <Reveal key={coluna.status} delay={i * 90}>
+                <h3 className="kicker flex items-center justify-between border-b border-paper/70 pb-4 text-paper">
+                  {coluna.rotulo}
+                  <span className="text-faint">{String(lista.length).padStart(2, '0')}</span>
+                </h3>
+                <ul>
+                  {lista.map((livro) => (
+                    <LivroItem key={livro.id} livro={livro} />
+                  ))}
+                </ul>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>

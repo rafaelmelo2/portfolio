@@ -30,21 +30,21 @@ export function DemoPreview({ url, title = 'Demo', onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col bg-black/80 backdrop-blur-sm"
+      className="fixed inset-0 z-[80] flex flex-col bg-black/80 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-label={`Preview: ${title}`}
     >
       {/* Header: empilha em mobile, touch targets >= 44px */}
-      <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 px-3 sm:px-4 py-3 bg-slate-900/95 border-b border-slate-700 shrink-0">
+      <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 px-3 sm:px-4 py-3 bg-ink/95 border-b border-line shrink-0">
         <div className="flex items-center justify-between gap-2 min-w-0">
-          <span className="text-slate-200 font-medium truncate text-sm sm:text-base">{title}</span>
+          <span className="text-paper font-medium truncate text-sm sm:text-base">{title}</span>
           <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             <a
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 min-h-[44px] px-3 py-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors touch-manipulation"
+              className="inline-flex items-center gap-1.5 min-h-[44px] px-3 py-2 text-sm text-signal hover:text-paper transition-colors touch-manipulation"
               title="Abrir em nova aba"
             >
               <ExternalLink size={18} />
@@ -53,14 +53,14 @@ export function DemoPreview({ url, title = 'Demo', onClose }) {
             <button
               type="button"
               onClick={onClose}
-              className="min-w-[44px] min-h-[44px] p-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-700 transition-colors touch-manipulation flex items-center justify-center"
+              className="min-w-[44px] min-h-[44px] p-2 rounded-lg text-muted hover:text-paper hover:bg-ink-3 transition-colors touch-manipulation flex items-center justify-center"
               aria-label="Fechar"
             >
               <X size={22} />
             </button>
           </div>
         </div>
-        <div className="flex items-center gap-1 p-1 rounded-lg bg-slate-800 border border-slate-600 w-fit">
+        <div className="flex items-center gap-1 p-1 rounded-lg bg-ink-2 border border-line w-fit">
           {TAMANHOS.map(({ label, value }) => (
             <button
               key={value}
@@ -68,8 +68,8 @@ export function DemoPreview({ url, title = 'Demo', onClose }) {
               onClick={() => setTamanho(value)}
               className={`min-h-[40px] px-3 py-2 text-xs font-medium rounded transition-colors touch-manipulation ${
                 tamanho === value
-                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-700'
+                  ? 'bg-signal/15 text-signal border border-signal/40'
+                  : 'text-muted hover:text-paper hover:bg-ink-3'
               }`}
             >
               {label}
@@ -86,7 +86,7 @@ export function DemoPreview({ url, title = 'Demo', onClose }) {
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className="relative rounded-lg overflow-hidden border border-slate-600 bg-slate-900 shadow-2xl transition-[width,height] duration-300 ease-out flex flex-col w-full"
+          className="relative rounded-lg overflow-hidden border border-line bg-ink shadow-2xl transition-[width,height] duration-300 ease-out flex flex-col w-full"
           style={{
             width: `${tamanho}vw`,
             maxWidth: '100%',
