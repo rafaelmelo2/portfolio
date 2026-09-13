@@ -1,5 +1,7 @@
 [build]
-  command = "bun run build"
+  # Instala com Bun a partir do bun.lock. Sem isso o Netlify instala com npm, que pula o binário opcional
+  # do Rollup para Linux (@rollup/rollup-linux-x64-gnu) e o `vite build` quebra.
+  command = "bun install --frozen-lockfile && bun run build"
   publish = "dist"
 
 # SPA: rotas como /blog precisam cair no index.html ao recarregar a página
